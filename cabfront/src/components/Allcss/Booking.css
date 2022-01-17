@@ -1,0 +1,59 @@
+.lablename{
+    font-size: 20px;
+    margin-right: 30px;
+}
+
+.inputdiv{
+    margin-bottom: 10px;
+}
+.inputfield{
+    height: 30px;
+    width: 250px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.countrydiv{
+    margin-right: 50px;
+
+}
+.selectcountry{
+    width: 250px;
+    margin-bottom: 14px;
+    font-size: 12px;
+}
+.inputfieldch{
+    height: 30px;
+    width: 250px;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.textareabook{
+    font-size: 15px;
+}
+.modaltitle{
+    font-size: 20px;
+    font-weight: 200;
+    font-weight: bold;
+    
+}
+
+.modalmain{
+   border-color: #072042;
+   background-color: #072042;
+   color: white;
+    
+   
+}
+.btnmodal{
+    background-color: #072042;
+    color: white;
+
+
+
+
+}
+.btnmodal:hover {
+  background-color: #fad60b; /* Green */
+  color: white;
+}

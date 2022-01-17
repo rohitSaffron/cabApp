@@ -1,0 +1,25 @@
+.data {
+  flex: 5;
+  background: $color-primary;
+
+  &__graphs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__row {
+    display: flex;
+    gap: 20px;
+  }
+
+  &__chart {
+    background: $color-white;
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+    padding: 20px;
+    flex: 1;
+  }
+}

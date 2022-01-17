@@ -1,0 +1,45 @@
+.passenger-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__row {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .h3 {
+      margin-left: 10px;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .minus,
+    .plus {
+      background: $color-primary;
+      color: $color-white;
+      padding: 5px;
+      height: 30px;
+      width: 30px;
+      border: none;
+      border-radius: 50rem;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background: $color-secondary;
+      }
+    }
+  }
+}

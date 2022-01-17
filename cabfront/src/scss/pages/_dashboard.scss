@@ -1,0 +1,8 @@
+.dashboard {
+  display: flex;
+  height: 100%;
+
+  & > div {
+    padding: 20px;
+  }
+}

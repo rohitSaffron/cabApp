@@ -1,0 +1,33 @@
+.geocoder {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  width: 100%;
+
+  div {
+    margin: 0;
+    box-shadow: none;
+  }
+}
+
+.mapboxgl-ctrl-geocoder {
+  min-width: 0 !important;
+  width: 100% !important;
+
+  input {
+    outline: none;
+    padding: 6px 0 6px 35px !important;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .mapboxgl-ctrl-geocoder {
+    width: 100%;
+    max-width: none;
+
+    input {
+      //   outline: none !important;
+      padding: 6px 0 6px 35px !important;
+    }
+  }
+}

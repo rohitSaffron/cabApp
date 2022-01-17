@@ -1,0 +1,28 @@
+.footer {
+  background: $color-dark-grey;
+  color: $color-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__divider {
+    display: flex;
+    height: 11px;
+    width: 100%;
+
+    .left {
+      background: $color-primary-dark;
+      flex: 0.5;
+    }
+
+    .right {
+      background: $color-primary;
+      flex: 1;
+    }
+  }
+
+  &__info,
+  &__copyright {
+    padding: 10px 30px;
+  }
+}

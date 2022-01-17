@@ -1,0 +1,75 @@
+.header {
+  height: 65px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  background: $color-white;
+  width: 100%;
+  z-index: 100;
+
+  &__ghost {
+    height: 65px;
+    padding: 10px;
+  }
+
+  &__container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    &:nth-of-type(2) {
+      margin: auto;
+    }
+
+    &:last-child {
+      padding: 10px;
+    }
+  }
+
+  &__logo {
+    height: 100%;
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+
+  &__navlist {
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    li {
+      list-style: none;
+
+      &:not(:nth-of-type(1)):not(:last-child) {
+        border-left: 1px solid $color-grey;
+        border-right: 1px solid $color-grey;
+      }
+    }
+
+    a {
+      height: 100%;
+      text-decoration: none;
+      color: $color-black;
+      padding: 18px 9px;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      font-size: 12px;
+
+      &:hover {
+        transform: scale(1.1);
+        color: $color-secondary;
+      }
+    }
+  }
+
+  &__user-image {
+    height: 100%;
+    border-radius: 50rem;
+    margin-right: 10px;
+  }
+
+  &__username {
+    margin-right: 1rem;
+  }
+}

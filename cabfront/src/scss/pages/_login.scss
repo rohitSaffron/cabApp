@@ -1,0 +1,47 @@
+.login-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.73);
+    form {
+        border: 1px solid #D3D3D3;
+        display: flex;
+        margin-top: 100px;
+        flex-direction: column;
+        padding: 24px;
+        height: fit-content;
+        h1 {
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+        input {
+            display: block;
+            background: #fff;
+            border: 1px solid #DEDEDE;
+            border-radius: 3px;
+            width: 345px;
+            height: 40px;
+            margin-bottom: 16px;
+            &::placeholder {
+                padding-left: 8px;
+            }
+        }
+        label {
+            margin-bottom: 8px;
+        }
+        button {
+            padding: 8px 24px;
+            background: #F3ED5D;
+            border-radius: 2px;
+            border: none;
+            cursor: pointer;
+        }
+    }
+    .login-error {
+        color: rgb(226, 12, 12);
+        background: rgba(255, 0, 0, 0.158);
+        padding-left: 8px;
+    }
+}

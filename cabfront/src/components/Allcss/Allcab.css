@@ -1,0 +1,71 @@
+.text_inrease_lable {
+  font-size: 25px;
+}
+
+.imgallcabs {
+  height: 210px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.mainallcabdiv {
+  background-color: aliceblue;
+  border-radius: 7px;
+  margin: 10px;
+}
+
+.secondallcabdiv {
+  padding: 5px;
+}
+.allcabsheading {
+  font-size: 15px;
+}
+
+.svg_icons {
+  transform: scale(1.8);
+}
+
+.icondiv {
+margin-top: 30px;
+}
+
+
+
+.colonediv{
+    justify-content: right;
+}
+.inputAllcab{
+  width: 250px;
+  height: 50px;
+  font-size: 15px;
+}
+
+.modaltitle{
+  font-size: 30px;
+ 
+}
+
+.modalbtn{
+  font-size: 20px;
+  margin-right: 15px;
+}
+.modalbody{
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.modalinput{
+  height: 30px;
+  width: 300px;
+  font-size: 20px;
+}
+
+.modalbtninvalid{
+  font-size: 20px;
+  margin-right: 15px;
+  color: red;
+
+}
+
+

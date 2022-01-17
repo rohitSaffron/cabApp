@@ -1,0 +1,52 @@
+.MuiFormControl-root {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.MuiPickersToolbar-toolbar,
+.MuiPickerDTTabs-tabs {
+  background: linear-gradient(to right, #2f80ed, #56ccf2) !important;
+}
+
+.MuiInputBase-input {
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+  margin-left: 10px !important;
+}
+
+.MuiInput-underline:before {
+  border-bottom: none !important;
+}
+
+.MuiInput-underline.Mui-focused:after {
+  transform: scaleX(0) !important;
+}
+
+.MuiPickersDay-daySelected,
+.MuiPickersClockPointer-pointer,
+.MuiPickersClock-pin {
+  background: $color-primary !important;
+}
+
+.MuiButton-textPrimary {
+  color: $color-primary !important;
+}
+
+.MuiPickersClockPointer-thumb {
+  border: 14px solid $color-primary !important;
+}
+
+.PrivateTabIndicator-colorSecondary-3 {
+  background: $color-secondary !important;
+}
+
+.MuiTypography-colorInherit,
+.MuiPickersCalendarHeader-dayLabel,
+.MuiPickersSlideTransition-transitionContainer > *,
+.MuiSvgIcon-root,
+.MuiPickersClockNumber-clockNumber,
+.MuiButton-label,
+MuiPickersClock-squareMask > *,
+.MuiTypography-subtitle1 {
+  font-size: 1.5rem !important;
+}

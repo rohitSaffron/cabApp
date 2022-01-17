@@ -1,0 +1,82 @@
+.cab-screen {
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+
+  .cab-grid {
+    width: $vw;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: flex-start;
+
+    @media only screen and (max-width: 75em) {
+      //1200px
+      width: $vw-big;
+    }
+
+    @include respond(tab-port) {
+      // width < 900?
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  .ride-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid $color-light-grey;
+    padding: 10px 20px;
+    background: $color-white;
+    box-shadow: 0 2px 4px 0 #c8c8c8;
+    flex: 1;
+    border-radius: $border-radius;
+  }
+
+  .cab-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 4;
+    .banner {
+      border-radius: $border-radius;
+      background: #fffee8;
+      border: 1px solid $color-light-grey;
+      box-shadow: 0 2px 4px 0 #c8c8c8;
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+
+      @include respond(phone) {
+        // width < 600px
+        flex-direction: column;
+      }
+
+      &__info {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        flex: 1;
+      }
+
+      &__img {
+        flex: 0.1;
+        background: $color-white;
+        padding: 10px 10px;
+        border-radius: 50rem;
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      &__text {
+        flex: 1;
+      }
+    }
+  }
+}
