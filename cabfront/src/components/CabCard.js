@@ -5,6 +5,9 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import pmlAPI from "../api/pmlAPI";
 import swal from 'sweetalert';
 
+import './Allcss/carcard.css'
+
+
 const CabCard = ({
   carModel,
   seats,
@@ -96,7 +99,7 @@ await pmlAPI.post('/send',  senddata)
   return (
     <div className="cab-card" key={cabId}>
       <div className="cab-card__image">
-        <img src={cabImage} alt="car 1" />
+        <img src={cabImage} alt="car 1" className='imgcar' />
       </div>
 
       <div className="cab-card__details">

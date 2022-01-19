@@ -56,7 +56,47 @@
     top: 380px;
     right: 160px;
 }
+.mainbackround{
+    height: 987px;
+    background: #3e4166;
+}
 
+
+
+.maindiv{
+    margin-top: 130px;
+    height: 700px;
+    /* width: 100px; */
+    border-radius: 12px;
+    background: rgb(0,170,255);
+     background: linear-gradient(351deg, rgba(0,170,255,0.6180847338935574) 0%, rgba(7,171,251,0.7021183473389356) 22%, rgba(62,176,222,0.7693452380952381) 51%, rgba(0,110,237,0.5984768907563025) 100%);
+
+}
+.headingdiv{
+    background-color: #3de0af;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: rgb(60, 63, 62);
+    border-radius: 10px;
+    
+}
+
+.myicon{
+    transform: scale(1.8);
+    font-size: 500px
+  }
+
+.icondiv{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+   
+}
+.formdiv{
+    margin-top: 100px;
+}
 
 
 
