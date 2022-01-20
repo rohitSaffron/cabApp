@@ -1,8 +1,30 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
 import '../scss/components/international.css';
+
 const International = () => {
-    
+    const responsive = {
+		superLargeDesktop: {
+		  // the naming can be any, depends on you.
+		  breakpoint: { max: 4000, min: 3000 },
+		  items: 5
+		},
+		desktop: {
+		  breakpoint: { max: 3000, min: 1024 },
+		  items: 4
+		},
+		tablet: {
+		  breakpoint: { max: 1024, min: 464 },
+		  items: 2
+		},
+		mobile: {
+		  breakpoint: { max: 464, min: 0 },
+		  items: 1
+		}
+	  };
 
     return(
         <main className="main">
@@ -10,7 +32,8 @@ const International = () => {
         <h2 className="h2 h2--2  mt-big">International Packages</h2>
       </div>
 	<div className="container">
-		<div className="scroll">
+	<Carousel responsive={responsive} 
+	autoPlay={true}>
 			<div className="card">
 				<div className="card-image">
 					<img src="https://i.ibb.co/WfMhk7c/Image-1.jpg" loading="lazy" className="responsive" alt="Images"></img>
@@ -18,7 +41,7 @@ const International = () => {
 				<div className="card-inner">
 					<h3 className="text text-title">Angkor Wat</h3>
 					<p className="paragraph truncate">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, necessitatibus quam laboriosam odio reiciendis eaque a.
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 					</p>
 				</div>
 			</div>
@@ -29,7 +52,7 @@ const International = () => {
 				<div className="card-inner">
 					<h3 className="text text-title">Bali Temple</h3>
 					<p className="paragraph truncate">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor odit velit ad unde aspernatur quas consequuntur!
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 					</p>
 				</div>
 			</div>
@@ -40,7 +63,7 @@ const International = () => {
 				<div className="card-inner">
 					<h3 className="text text-title">Big Ben</h3>
 					<p className="paragraph truncate">
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio accusamus culpa, rem vel quasi ut eligendi.
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit.
 					</p>
 				</div>
 			</div>
@@ -51,7 +74,7 @@ const International = () => {
 				<div className="card-inner">
 					<h3 className="text text-title">Colosseum</h3>
 					<p className="paragraph truncate">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam inventore aperiam officia fuga, deleniti officiis non?
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 					</p>
 				</div>
 			</div>
@@ -62,7 +85,7 @@ const International = () => {
 				<div className="card-inner">
 					<h3 className="text text-title">Eiffel Tower</h3>
 					<p className="paragraph truncate">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ducimus architecto, impedit magni cupiditate fuga reprehenderit.
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 					</p>
 				</div>
 			</div>
@@ -73,7 +96,7 @@ const International = () => {
 				<div className="card-inner">
 					<h3 className="text text-title">Grand Canyon</h3>
 					<p className="paragraph truncate">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus repellat architecto sequi libero, explicabo nostrum delectus.
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. 
 					</p>
 				</div>
 			</div>
@@ -84,7 +107,7 @@ const International = () => {
 				<div className="card-inner">
 					<h3 className="text text-title">Great Wall</h3>
 					<p className="paragraph truncate">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nisi dignissimos beatae odit dolores asperiores commodi!
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 					</p>
 				</div>
 			</div>
@@ -95,7 +118,7 @@ const International = () => {
 				<div className="card-inner">
 					<h3 className="text text-title">Machu Picchu</h3>
 					<p className="paragraph truncate">
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro inventore, soluta dignissimos magni earum hic quisquam!
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit.
 					</p>
 				</div>
 			</div>
@@ -106,7 +129,7 @@ const International = () => {
 				<div className="card-inner">
 					<h3 className="text text-title">Pyramids</h3>
 					<p className="paragraph truncate">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse sequi quos ducimus culpa maxime voluptas quis!
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 					</p>
 				</div>
 			</div>
@@ -117,11 +140,11 @@ const International = () => {
 				<div className="card-inner">
 					<h3 className="text text-title">Saint Basil</h3>
 					<p className="paragraph truncate">
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel nisi eius pariatur exercitationem debitis sit reiciendis.
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
 					</p>
 				</div>
 			</div>
-		</div>
+			</Carousel>
 	</div>
 </main>
 

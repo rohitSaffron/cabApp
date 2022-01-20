@@ -125,7 +125,7 @@ export default function AboutUs() {
       <Container fluid className="ServiceContainer">
         <Row className="RowAbourtUs">
           <Col sm={4}></Col>
-          <Col sm={4} className="AboutUsCol">
+          <Col sm={4} className="AboutUsCol about_us">
             {" "}
             <h2 className="AboutUs our_Service">OUR SERVICES</h2>
           </Col>

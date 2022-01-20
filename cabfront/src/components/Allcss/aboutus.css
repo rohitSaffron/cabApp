@@ -10,6 +10,10 @@ body {
         right: -260px;
         font-weight: bold;
 }
+.col-sm-4 h1{
+    color: white;
+    text-shadow: 14px 10px 20px #092348;
+}
 .row {
     display: -ms-flexbox;
     display: flex;
@@ -47,6 +51,9 @@ body {
 .AboutUsCol {
   text-align: center;
   top: 75px;
+}
+.col-sm-4{
+    top: 0px;
 }
 .wwa {
   margin-top: 100px;

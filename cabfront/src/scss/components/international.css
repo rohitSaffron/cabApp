@@ -1,3 +1,7 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
 img,
 video {
   display: block;
@@ -10,7 +14,7 @@ video {
 .container {
   width: 100%;
   height: auto;
-  padding: 25px 7rem;
+  padding: 25px 0px;
 }
 
 .text {
@@ -29,7 +33,6 @@ video {
   font-size: 1rem;
   font-weight: normal;
   line-height: inherit;
-  margin: 0.25rem 0;
   color: #252a32;
   text-transform: unset;
   text-rendering: optimizeLegibility;
@@ -70,7 +73,7 @@ video {
   cursor: -webkit-grab;
 }
 .main .scroll .card {
-  width: 16rem;
+  width: 30rem;
   height: auto;
   flex: 0 0 auto;
   margin: 0 0.75rem;
@@ -102,4 +105,25 @@ video {
   width: 100%;
   height: auto;
   padding: 1rem;
+}
+.card-inner h3{
+  width: 100%;
+  height: auto;
+  padding-left: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  color: #252a32;
+}
+.card-inner p{
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: rgb(105, 103, 103);
+}
+p {
+  margin-bottom: 0rem;
 }

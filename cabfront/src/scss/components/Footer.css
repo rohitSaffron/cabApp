@@ -29,7 +29,6 @@ h3{
     font-size: 24px;
     font-weight: 900;
     letter-spacing: 1.1px;
-    margin-bottom: 10px;
 }
 
 
@@ -81,7 +80,14 @@ h3{
 .acc_icon a i{
     color: #fad60b;
 }
-
+.services a p{
+    cursor: pointer;
+}
+.services .sight a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
 
 
 
