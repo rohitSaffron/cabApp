@@ -42,8 +42,8 @@
       list-style: none;
 
       &:not(:nth-of-type(1)):not(:last-child) {
-        border-left: 1px solid $color-grey;
-        border-right: 1px solid $color-grey;
+        // border-left: 1px solid $color-grey;
+        // border-right: 1px solid $color-grey;
       }
     }
 

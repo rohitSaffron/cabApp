@@ -1,0 +1,90 @@
+.pmlheading{
+    font-size: 50px;
+    color: white;
+}
+.aboutus_cotainer{
+    margin-top: 30px;
+    background-image: url('../../imges/wallpaperbetter.jpg');
+   background-repeat: no-repeat;
+    background-size: 2100px 500px;
+    height: 700px;
+ 
+  
+   
+}
+.pmlheading_col{
+    text-align: center;
+    padding-top: 330px;
+}
+
+.AboutUs{
+    font-size: 30px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    color: #092348;
+  
+}
+.RowAbourtUs{
+    margin-top: 100px;
+}
+
+.AboutUsCol{
+    text-align: center;
+  
+   
+   
+}
+
+.AboutUs_sideImg{
+   height: 700px;
+  
+
+}
+.li_list{
+    font-size: 20px;
+    font-weight: normal;
+ 
+}
+.ulcol{
+    justify-content: center;
+    align-items:center;
+}
+.secondaryTitle{
+    font-size: 25px;
+    font-weight: bold;
+}
+.ServiceContainer{
+    background-color: rgb(224, 224, 224);
+}
+.ourService{
+    margin-top: 10px;
+}
+.wearebest{
+    font-size: 40px;
+   
+    font-weight: bold;
+    color: #092348;
+}
+
+.svgicons{
+    transform: scale(2.0);
+}
+.cardtitle{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+.cardheader{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
+
+
+
+

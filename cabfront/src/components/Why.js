@@ -3,7 +3,7 @@ import LocalTaxiRoundedIcon from "@mui/icons-material/LocalTaxiRounded";
 import PriceCheckRoundedIcon from "@mui/icons-material/PriceCheckRounded";
 import AltRouteRoundedIcon from "@mui/icons-material/AltRouteRounded";
 import EventRoundedIcon from "@mui/icons-material/EventRounded";
-
+import "./Allcss/Why.css";
 const Why = () => {
   return (
     <section className="why">
@@ -31,8 +31,7 @@ const Why = () => {
           <AltRouteRoundedIcon />
           <h3 className="h3 h3--1">Easy & flexible booking</h3>
           <p className="p p--1">
-            Booking online is easy and only take 5 minutes, cancellations are
-            free of charge up to 24 hours before the transfer.
+            Booking online is easy and only take 5 minutes.
           </p>
         </div>
         <div className="why__item">

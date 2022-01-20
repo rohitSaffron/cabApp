@@ -22,6 +22,8 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
 
+import "./Allcss/signUp.css"
+
 const theme = createTheme();
 
 export default function SignUp() {
@@ -228,7 +230,13 @@ export default function SignUp() {
         </Modal.Footer>
       </Modal>
 
-      <ThemeProvider theme={theme}>
+     <div className="fullPart_sin">
+       <div  className="firstPart_sin">
+       <img src="https://img.etimg.com/thumb/width-1200,height-900,imgsize-437061,resizemode-1,msid-78201700/wealth/spend/planning-a-holiday-in-next-few-months-avail-these-discounts-on-flights-hotels-travel-packages-now.jpg"></img>
+       </div>
+       <div className="secondPart_sin">
+         <div className="jass9_sin">
+         <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <Box
@@ -239,11 +247,11 @@ export default function SignUp() {
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <Avatar sx={{ m: 0, bgcolor: "#3e4166",  width: "55px", height: "55px" }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
+            <Typography component="h1" variant="h3">
+              Sign Up
             </Typography>
             <Box
               component="form"
@@ -260,6 +268,9 @@ export default function SignUp() {
                 name="name"
                 autoComplete="name"
                 autoFocus
+                sx={{
+                  maxWidth:500
+                }}
               />
               <TextField
                 margin="normal"
@@ -307,7 +318,7 @@ export default function SignUp() {
                 id="phone"
                 label="Phone No."
                 name="phone"
-                autoComplete="phone"
+                // autoComplete="phone"
                 autoFocus
                 onChange={(e)=>{
                   var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
@@ -381,10 +392,11 @@ export default function SignUp() {
                  }}> Password Should be least 8 Character </span> <br></br></>):('')}
 
               <Button
+                id="btn_sin"
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 1, mb: 1, fontSize: 14 }}
+                sx={{ mt: 1, mb: 1, fontSize: 14, bgcolor: "#3e4166" }}
                 disabled={valid.btnisdesable}
               >
                 {loading ? "Loading ........" : "Sign Up"}
@@ -393,6 +405,9 @@ export default function SignUp() {
           </Box>
         </Container>
       </ThemeProvider>
+         </div>
+       </div>
+     </div>
     </>
   );
 }

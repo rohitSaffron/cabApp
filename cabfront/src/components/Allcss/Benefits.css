@@ -1,0 +1,42 @@
+.card__description .h3--1{
+    color: #092348;
+}
+.benefits__container .h2--2{
+    color: #092348;
+}
+
+.benefits__container .card svg {
+    width: 30px;
+    height: 30px;
+    color: #fbe729;
+    transition: all 0.2s;
+}
+.benefits__container .card {
+    min-height: 95px;
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
+    gap: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 2px 2.5px 5px -1px #ccc;
+    padding: 40px 55px;
+}
+
+.css-i4bv87-MuiSvgIcon-root {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: #e9dd70;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 2;
+    -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-size: 1.5rem;
+}

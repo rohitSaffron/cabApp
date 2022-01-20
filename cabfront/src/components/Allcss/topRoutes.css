@@ -1,0 +1,22 @@
+.top-routes__route svg {
+    color: #fbe729;
+    margin-right: 10px;
+    margin-bottom: 12px;
+    transform: scale(1.3);
+}
+.top-routes__route p {
+    color: white;
+}
+.top-routes__container:last-of-type {
+    margin-top: 20px;
+    padding: 11px 23px;
+    width: 80vw;
+    border-radius: 3px;
+    box-shadow: 2px 2.5px 5px -1px #ccc;
+    border: 1px solid #ccc;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-column-gap: 20px;
+    background-color: #092348;
+    column-gap: 20px;
+}

@@ -3,7 +3,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import AttachMoneyRoundedIcon from "@mui/icons-material/AttachMoneyRounded";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import ReceiptRoundedIcon from "@mui/icons-material/ReceiptRounded";
-
+import "./Allcss/Benefits.css";
 const Benefits = () => {
   return (
     <section className="benefits">

@@ -11,7 +11,7 @@ const Header = () => {
   const [key, setkey] = useState("");
   const [userdata, setuserData] = useState("");
   const [refresh, setrefresh] = useState("hiiii");
-  const matches = useMediaQuery("(max-width:700px)");
+  const matches = useMediaQuery("(max-width:940px)");
   const [drawerOpen, setdrawer] = useState(false);
 
   const vvvv = localStorage.getItem("userData");
@@ -205,7 +205,7 @@ const Header = () => {
             </div>
 
             <div className="header__container">
-              <ul className="header__navlist">
+              <ul className="header__navlist ul_version">
                 <li>
                   <Link to="/">Cabs</Link>
                 </li>
@@ -218,7 +218,8 @@ const Header = () => {
                 )}
 
                 <li>
-                  <a href="/">About us</a>
+                  
+                  <Link to="/aboutus">About us</Link>
                 </li>
               </ul>
             </div>
@@ -242,7 +243,9 @@ const Header = () => {
               ) : (
                 <ul className="header__navlist">
                   <li>
-                    <a>{jsonnn?.name}</a>
+                    <a style={{
+                      color:'white'
+                    }}> Hi, {jsonnn?.name}</a>
                   </li>
                   <li>
                     <a>

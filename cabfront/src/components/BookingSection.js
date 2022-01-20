@@ -36,6 +36,10 @@ import countryList from "react-select-country-list";
 import TextField from "@mui/material/TextField";
 import date from "date-and-time";
 import swal from "sweetalert";
+import "./Allcss/bookingSection.css"
+
+
+
 const Booking = () => {
   // NOTE: The following context is for the use of the hidden map
   // const [{ pickup, dropoff, distance, duration, passengers, date }, dispatch] =
@@ -468,10 +472,10 @@ const Booking = () => {
       </Modal>
       <section className="booking">
         <div className="booking__container">
-          <h2 className="h2 h2--1">PML HOLIDAYS</h2>
+          <h2 className="h2 h2--1">Plan Your Journey With Us!</h2>
         </div>
 
-        <div className="booking__container">
+        <div className="booking__container book_hover">
           <p
             className={`p p--1 ${
               selectedOption === "outstation" ? "active" : ""
@@ -518,7 +522,7 @@ const Booking = () => {
             <TextField
               id="datetime-local"
               type="datetime-local"
-              sx={{ width: 250 }}
+              sx={{ width: 250, color: "c2cbd3", }}
               InputLabelProps={{
                 shrink: true,
               }}
@@ -538,9 +542,10 @@ const Booking = () => {
                     className="passenger-btn"
                     onClick={handleClick}
                   >
-                    <h2 className="h2">
-                      {passengers.adults} adt, {passengers.children} chd,
-                      {passengers.infants} inf
+                    <h2 className="h2 very_high">
+                      {passengers.adults} Adt, 
+                      {passengers.children} Chd,
+                      {passengers.infants} Inf
                     </h2>
                   </button>
                   {open ? (

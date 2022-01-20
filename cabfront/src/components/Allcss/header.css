@@ -1,3 +1,5 @@
+
+
 .svg_icons {
     transform: scale(2.2);
   }
@@ -25,11 +27,41 @@
    
 }
 .listitem{
-    font-size: 30px;
+    font-size: 60px;
 }
-
-
-
+.ul_version li a{
+   background-color:white;
+    color:#092348;
+}
+.ul_version li a:hover{
+    color:#fbe729;
+}
+.header__navlist a {
+    font-size: 16px;
+    background-color: #092348;
+    color: #fbe729;
+}
+.header__navlist a:hover {
+    color: white;
+}
+ul {
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+.header {
+    height: 52px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    background: #fff;
+    width: 100%;
+    z-index: 100;
+}
+.header__ghost {
+    height: 0px;
+    padding: 10px;
+}
 
 
 

@@ -1,0 +1,38 @@
+
+.mt-big{
+    color: #092348;
+}
+.why__item svg {
+    width: 40%;
+    height: 40%;
+    padding: 20px;
+    background-color: #092348;
+    color: #fbe729;
+    border: 1px solid #092348;
+    border-radius: 100rem;
+    transition: all 0.2s;
+}
+.why__item svg:hover{
+    color: #fbe729;
+    border: 1px solid #fbe729;
+}
+.why__item .h3--1 {
+    color: #092348;
+}
+.why__item .h3--1:hover{
+    color: #fbe729;
+}
+.why__item {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 10px;
+    gap: 10px;
+    text-align: center;
+}
+.why__item:hover{
+    color: #fbe729;
+    cursor: alias ;
+}

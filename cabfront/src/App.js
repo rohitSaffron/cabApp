@@ -21,6 +21,7 @@ import Login from "./components/login";
 import LoginPage from "./components/LoginPage";
 import SignUp from "./components/SignUp";
 import ChangePassword from "./components/ChangePassword";
+import Aboutus from "./components/Aboutus";
 
 function App() {
   const [token, setToken] = useState("");
@@ -46,8 +47,10 @@ function App() {
               </>
             }
           ></Route>
+          <Route path="/aboutus" element={<Aboutus />}></Route>
           <Route path="/cabs" element={<CabsScreen />}></Route>
           <Route path="/changepsd" element={<ChangePassword />}></Route>
+          
 
           <Route path="/dashboard/*" element={<DashboardScreen />}></Route>
 

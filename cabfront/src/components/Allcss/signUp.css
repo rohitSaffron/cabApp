@@ -2,61 +2,49 @@
     transform: scale(1.8);
 }
 
-.fullPart {
+.fullPart_sin{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
 }
 
-.firstPart {
+.firstPart_sin {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     max-width: 58.333333%;
     flex-basis: 58.333333%;
 }
-.firstPart img{
+.firstPart_sin img{
     height: 988px;
     opacity: 0.7;
 }
-.secondPart{
+.secondPart_sin{
     max-width: 41.666667%;
     flex-basis: 41.666667%;
 }
-.jass9{
+.jass9_sin{
     margin: 64px 32px;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.jass10{
+.jass10_sin{
     margin: 80px;
     background-color: #f50057;
 }
-
 .MuiInputBase-input {
     font-size: 1.5rem !important;
     font-weight: bold !important;
     margin-left: 0px !important;
 }
 
-#btn:hover {
+#btn_sin:hover {
     background-color: #4f559c;
 }
-#btn_two {
-    background-color: white;
-    box-shadow: 0px 0px 0px 0px rgb(0 0 0 / 0%), 
-    0px 0px 0px 0px rgb(0 0 0 / 0%),
-     0px 0px 0px 0px rgb(0 0 0 / 0%);
-     text-transform: lowercase;
-     cursor: alias;
-}
-#btn_two p{
-    cursor: pointer ;
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
-    font-size: 14px;
-}
+
+
 
 
 
