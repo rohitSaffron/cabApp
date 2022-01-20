@@ -1,90 +1,138 @@
-.pmlheading{
-    font-size: 50px;
-    color: white;
+body {
+  font-family: "Open Sans", sans-serif;
 }
-.aboutus_cotainer{
-    margin-top: 30px;
-    background-image: url('../../imges/wallpaperbetter.jpg');
-   background-repeat: no-repeat;
-    background-size: 2100px 500px;
-    height: 700px;
- 
-  
-   
+.pmlheading {
+        font-size: 100px;
+        color: white;
+        width: 185%;
+        position: absolute;
+        bottom: -125px;
+        right: -260px;
+        font-weight: bold;
 }
-.pmlheading_col{
-    text-align: center;
-    padding-top: 330px;
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    position: relative;
 }
-
-.AboutUs{
-    font-size: 30px;
-    padding-bottom: 20px;
-    font-weight: bold;
-    color: #092348;
-  
+.aboutus_cotainer {
+  margin-top: 30px;
+  background-image: url("../../imges/wallpaperbetter.jpg");
+  background-repeat: no-repeat;
+  background-size: 2100px 500px;
+  height: 500px;
 }
-.RowAbourtUs{
-    margin-top: 100px;
-}
-
-.AboutUsCol{
-    text-align: center;
-  
-   
-   
+.pmlheading_col {
+  text-align: center;
+  padding-top: 330px;
 }
 
-.AboutUs_sideImg{
-   height: 700px;
-  
-
+.AboutUs {
+  font-size: 24px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  color: #092348;
+  border-bottom: 7px solid #fad60b;
+  width: 128px;
+  margin-left: 75px;
 }
-.li_list{
-    font-size: 20px;
-    font-weight: normal;
- 
-}
-.ulcol{
-    justify-content: center;
-    align-items:center;
-}
-.secondaryTitle{
-    font-size: 25px;
-    font-weight: bold;
-}
-.ServiceContainer{
-    background-color: rgb(224, 224, 224);
-}
-.ourService{
-    margin-top: 10px;
-}
-.wearebest{
-    font-size: 40px;
-   
-    font-weight: bold;
-    color: #092348;
+.RowAbourtUs {
+  margin-top: 100px;
 }
 
-.svgicons{
-    transform: scale(2.0);
+.AboutUsCol {
+  text-align: center;
+  top: 75px;
 }
-.cardtitle{
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 30px;
+.wwa {
+  margin-top: 100px;
 }
-.cardheader{
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
+.wwa p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 400;
+  color: rgb(105, 103, 103);
+}
+.wwd ul li {
+  font-size: 16px;
+  line-height: 45px;
+  font-weight: 400;
+  color: rgb(105, 103, 103);
+}
+.AboutUs_sideImg {
+  height: 570px;
+  width: 470px;
+  margin-top: 100px;
+  margin-left: 130px;
+}
+.li_list {
+  font-size: 20px;
+  font-weight: normal;
+}
+.ulcol {
+  justify-content: center;
+  align-items: center;
+}
+.secondaryTitle {
+  font-size: 25px;
+  font-weight: bold;
+  color: #092348;
+}
+.col-sm-8 {
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 400;
+  color: rgb(105, 103, 103);
+}
+.card_para {
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 400;
+  color: rgb(105, 103, 103);
+  padding: 20px 10px 20px 10px;
+}
+.ServiceContainer {
+  background-color: rgb(224, 224, 224);
+}
+.our_Service {
+  margin-top: 25px;
+  width: 185px;
+  color: #092348;
+  margin-left: 230px;
+}
+.wearebest {
+  font-size: 40px;
+  font-weight: bold;
+  color: #092348;
 }
 
-
-
-
-
-
-
-
+.svgicons {
+  transform: scale(2);
+  color: #092348;
+}
+.cardtitle {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+}
+.cardheader {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #092348;
+  color: #fad60b;
+  text-transform: uppercase;
+}
+.cardtitle svg {
+  width: 25px;
+  height: 25px;
+}
+.card-title {
+  margin-bottom: 0rem;
+}

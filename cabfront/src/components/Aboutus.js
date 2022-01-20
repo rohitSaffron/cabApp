@@ -41,7 +41,7 @@ export default function AboutUs() {
           <Col sm={4}>
             <br></br>
             <br></br>
-            <div>
+            <div className="wwa">
               <h2 className="secondaryTitle">WHO WE ARE?</h2>
               <br></br>
               <p>
@@ -56,7 +56,7 @@ export default function AboutUs() {
             </div>
             <br></br>
             <br></br>
-            <div>
+            <div className="wwd">
               <h2 className="secondaryTitle">WHAT WE DO?</h2>
               <Row>
                 <Col sm={6} className="ulcol">
@@ -127,7 +127,7 @@ export default function AboutUs() {
           <Col sm={4}></Col>
           <Col sm={4} className="AboutUsCol">
             {" "}
-            <h2 className="AboutUs ourService">OUR SERVICES</h2>
+            <h2 className="AboutUs our_Service">OUR SERVICES</h2>
           </Col>
           <Col sm={4}></Col>
         </Row>
@@ -148,7 +148,7 @@ export default function AboutUs() {
                 <Card.Body>
                   <Card.Title className="cardtitle"><FlightIcon className="svgicons" /></Card.Title>
                   <Card.Header  className="cardheader" >FlIGHTS</Card.Header>
-                  <Card.Text>
+                  <Card.Text className="card_para">
                   We offers you the best deal on Flights as well as best connections in anywhere in the world.
                   </Card.Text>
                  
@@ -162,7 +162,7 @@ export default function AboutUs() {
                <Card.Body>
                  <Card.Title className="cardtitle"><HotelIcon className="svgicons" /></Card.Title>
                  <Card.Header  className="cardheader" >Hotels</Card.Header>
-                 <Card.Text>
+                 <Card.Text className="card_para">
                  We bring you thousands of options for hotel accommodation globally. Get the best offers right here .
                  </Card.Text>
                 
@@ -176,7 +176,7 @@ export default function AboutUs() {
                 <Card.Body>
                   <Card.Title className="cardtitle"><BusinessCenterIcon className="svgicons" /></Card.Title>
                   <Card.Header  className="cardheader" >Holiday Packages</Card.Header>
-                  <Card.Text>
+                  <Card.Text className="card_para">
                   Get the best value for your money when you buy PML Holidays packages.
                   </Card.Text>
                  
@@ -195,8 +195,8 @@ export default function AboutUs() {
                 <Card.Body>
                   <Card.Title className="cardtitle"><AirportShuttleIcon className="svgicons" /></Card.Title>
                   <Card.Header  className="cardheader" >Bus & Car</Card.Header>
-                  <Card.Text>
-                  Bitten by the road-trip bug ? Convenient point-to-point bus bookings are now just a few clicks away..
+                  <Card.Text className="card_para">
+                  Bitten by the road-trip bug ? Convenient point-to-point bus bookings are now just a few clicks away.
                   </Card.Text>
                  
                 </Card.Body>
@@ -209,7 +209,7 @@ export default function AboutUs() {
                <Card.Body>
                  <Card.Title className="cardtitle"><CreditScoreIcon className="svgicons" /></Card.Title>
                  <Card.Header  className="cardheader" >Visa</Card.Header>
-                 <Card.Text>
+                 <Card.Text className="card_para">
                  We offers VISA services for all over world .
                  </Card.Text>
                 
@@ -223,7 +223,7 @@ export default function AboutUs() {
                 <Card.Body>
                   <Card.Title className="cardtitle"><BeenhereIcon className="svgicons" /></Card.Title>
                   <Card.Header  className="cardheader" >Forex</Card.Header>
-                  <Card.Text>
+                  <Card.Text className="card_para">
                   We offer host of forex services for completing your travel needs during an overseas stay.
                   </Card.Text>
                  
