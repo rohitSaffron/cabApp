@@ -14,22 +14,19 @@ const register = (req, res, next) => {
   var Opt = Math.random();
   Opt = Opt * 1000000;
   Opt = parseInt(Opt);
-
-  const output = `
-        <p>Here Is your Otp</p>
-        <h3>Otp is valid for 2 Minutes</h3>
-
-
-        <h4>Otp: ${Opt}</h4>
-        <h4>Valid For: 2 Minutes</h4>
-        <h4>Sending Time: ${currentDate} </h4>
+      const output = `
+        <h3>Hello </h3>
         
-        <h3>Message</h3>
-        <h1>Thank you </h1>
+        <p>Your One-Time-Password (OTP)  is ${Opt} and is valid for 2 minutes. Do not share your OTP with anyone.  </p>
+
+        <h3>Regards</h3>
+        <h1>Team PML Holidays </h1>
       `;
 
   var transporter = nodemailer.createTransport({
     service: "gmail",
+    port: 465,
+    secure: true,
     auth: {
       user: process.env.adminEmail,
       pass: process.env.password,
@@ -39,24 +36,24 @@ const register = (req, res, next) => {
   var mailOptions = {
     from: process.env.adminEmail,
     to: `${useremaillcheck} `,
-    subject: "Your Otp is her",
+    subject: "Your Otp is here",
     text: "Use this opt for SignUp!",
     html: output,
   };
 
-  User.findOne({ $or: [{ email: useremaillcheck }] }).then((user) => {
-    if (user) {
-      res.json({
-        massage: "email already exited",
-      });
-    } else {
-      User.findOne({ $or: [{ phone: userphonecheck }] }).then((user) => {
-        if (user) {
-          res.json({
-            massage: "Phone already exited",
-          });
-        } else {
-          if (useremaillcheck) {
+  if (useremaillcheck) {
+    User.findOne({ $or: [{ email: useremaillcheck }] }).then((user) => {
+      if (user) {
+        res.json({
+          massage: "email already exited",
+        });
+      } else {
+        User.findOne({ $or: [{ phone: userphonecheck }] }).then((user) => {
+          if (user) {
+            res.json({
+              massage: "Phone already exited",
+            });
+          } else {
             transporter.sendMail(mailOptions, function (error, info) {
               if (error) {
                 res.send(error);
@@ -69,16 +66,16 @@ const register = (req, res, next) => {
                 });
               }
             });
-          } else {
-            res.json({
-              result: false,
-              massage: "We unable to get your email plz signup again",
-            });
           }
-        }
-      });
-    }
-  });
+        });
+      }
+    });
+  } else {
+    res.json({
+      result: false,
+      massage: "We unable to get your email plz signup again",
+    });
+  }
 };
 
 const login = (req, res) => {
@@ -139,10 +136,20 @@ const verifyOtp = async (req, res) => {
   let id = req.params.id;
   let useremaillcheck = req.body.email;
 
- 
+  const output = `
+  <h3>Hello </h3>
+  
+  <p>Welcome to PML Holidays. You have successfully registered with PML Holidays. Now travel with us safely, fast, and on time.  </p>
+  <p> To know more visit https://pmlholidays.com/ </p>
+
+  <h3>Regards</h3>
+  <h1>Team PML Holidays </h1>
+`;
 
   var transporter = nodemailer.createTransport({
     service: "gmail",
+    port: 465,
+    secure: true,
     auth: {
       user: process.env.adminEmail,
       pass: process.env.password,
@@ -152,12 +159,12 @@ const verifyOtp = async (req, res) => {
   var mailOptions = {
     from: process.env.adminEmail,
     to: `${useremaillcheck} `,
-    subject: "Your Otp is her",
+    subject: "Your Otp is here",
     text: `<h1> Thanks for Joining Us `,
-   
+    html:output
   };
-  if(req.body){
 
+  if (req.body) {
     bcrypt.hash(req.body.password, 10, function (err, hashedPass) {
       if (err) {
         res.json({
@@ -186,10 +193,9 @@ const verifyOtp = async (req, res) => {
               res.send(error);
             } else {
               res.json({
-                result:true,
+                result: true,
                 data,
                 massage: "user added Successfully",
-                
               });
             }
           });
@@ -200,15 +206,11 @@ const verifyOtp = async (req, res) => {
           });
         });
     });
-
-  }else{
+  } else {
     res.json({
-      massage:' SomeThing Went wrong '
-    })
+      massage: " SomeThing Went wrong ",
+    });
   }
-
-
-
 };
 
 const deleteuser = async (req, res, next) => {
@@ -232,10 +234,11 @@ const deleteuser = async (req, res, next) => {
   }
 };
 
-const forgotpassword = async (req, res) => {
+const changepsd = async (req, res) => {
   var id = req.params.id;
   var passwordrr = req.body.oldpsd;
   var passwordnew = req.body.newpsd;
+
   User.findById(id, function (err, docs) {
     if (err) {
       res.json({
@@ -276,10 +279,50 @@ const forgotpassword = async (req, res) => {
   });
 };
 
-module.exports = {    
+const forgotpassword = async (req, res)=>{
+  var id = req.params.id;
+  var useremail=req.body.email;
+  var passwordnew = req.body.newpsd;
+
+
+      bcrypt.hash(passwordnew, 10, async function (err, hashedPass) {
+       if(err){
+        res.json({
+          massage: "Something Went Wronge Plz try again",
+        });
+
+       }else{
+        const user = await User.findByIdAndUpdate(
+          { _id: id },
+          { password: hashedPass },
+          {
+            new: true,
+          }
+        );
+
+        res.json({
+          user,
+          result:true,
+          massage: "Password Change succsesfully",
+        });
+       }
+
+        // let doc = await User.findOneAndUpdate({email:useremail},  { password: hashedPass }, {
+        //   new: true
+        // });
+
+        // res.json(doc)
+
+
+      });
+  
+}
+
+module.exports = {
   register,
   login,
   verifyOtp,
   deleteuser,
   forgotpassword,
+  changepsd
 };

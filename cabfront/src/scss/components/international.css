@@ -10,7 +10,10 @@ video {
   -o-object-fit: cover;
      object-fit: cover;
 }
-
+.card-image img{
+  width: 300px;
+  height: 350px;
+}
 .container {
   width: 100%;
   height: auto;
@@ -115,15 +118,68 @@ video {
   line-height: 30px;
   font-weight: 400;
   color: #252a32;
+  padding: 8px 15px 0px 15px;
 }
 .card-inner p{
   width: 100%;
   height: auto;
-  padding: 1rem;
+  padding: 0px 15px 10px 15px;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   color: rgb(105, 103, 103);
+  line-height: 24px;
+}
+.card-inner .book_btn{
+
 }
 p {
   margin-bottom: 0rem;
 }
+.react-multi-carousel-track {
+  gap: 20px;
+}
+.book_btn{
+  width: 120px;
+  height: 45px;
+  background-color: #092348;
+  color: #fbe729;
+  font-size: 15px;
+  border-radius: 6px ;
+  margin-left: 75px;
+  margin-bottom: 20px;
+}
+.all_set{
+  width: 235px;
+  margin-left: 925px;
+}
+
+.cardheight{
+  height: 550px;
+  width: 300px;
+}
+
+.buttondiv{
+ 
+
+}
+.book_btn{
+ 
+  margin-top: 10px;
+  margin-left: 16px;
+}
+
+.responsive{
+  object-fit: cover;
+  width: fit-content;
+  width: 300px;
+}
+
+
+
+
+
+
+
+
+
+

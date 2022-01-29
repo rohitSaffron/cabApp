@@ -12,6 +12,7 @@ const cabAdd = (req, res, next) => {
     luggage: req.body.luggage,
     seats: req.body.seats,
     price: req.body.price,
+    region:req.body.region,
     cabImage: req.body.cabImage,
   });
 

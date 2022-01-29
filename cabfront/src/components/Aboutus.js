@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import "./Allcss/aboutus.css";
 import { Container, Row, Col ,Card,Button } from "react-bootstrap";
 import Img from "../imges/sideimg.png";
@@ -12,6 +12,9 @@ import Footer from "./Footer";
 
 
 export default function AboutUs() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, []);
   return (
     <div className="about">
       <Container fluid className="aboutus_cotainer">

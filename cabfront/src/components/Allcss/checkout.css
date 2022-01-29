@@ -1,0 +1,125 @@
+.logo{
+    transform: scale(1.9);
+}
+.imgcar{
+    height: 90px;
+    width: 200px;
+    border-radius: 10px;
+    
+}
+.listItemsecond{
+    background-color: #fff8f8;
+}
+.cardbody{
+    background-color: #fefdee;
+}
+.heading{
+    font-size: 20px;
+   padding-left: 10px;
+}
+.carmodalheading{
+    font-size: 22px;
+    font-weight: bold;
+}
+.textUnit{
+    font-size: 15px;
+    color: rgb(101, 196, 209);
+    margin: 5px;
+}
+.pickuplocation{
+    font-size: 23px;
+}
+.formheading{
+    font-size: 15px;
+}
+.selectoption{
+    width: 90px;
+    height: 26px;
+    font-size: 15px;
+    background-color: rgb(230, 230, 230);
+    margin-top: 10px;
+    margin-bottom: 10px;
+   
+}
+.options{
+    font-size: 15px;
+}
+.bedgepill{
+    font-size: 10px;
+}
+.fontsize{
+    font-size: 12px;
+}
+.ulpadding{
+    margin-left: 14px;
+}
+.ulheading{
+    font-size: 18px;
+    font-weight: bold;
+}
+.textfontli{
+    font-size: 14px;
+    font-weight: normal;
+}
+.headingside{
+    font-size: 14px;
+}
+.amountside{
+   font-size: 16px;
+    
+}
+.listitem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.headingsideGrand{
+    font-size: 26px;
+    color: rgb(241, 68, 68);
+}
+.amountsidegrand{
+    font-size: 20px;
+}
+.inputfiled{
+   width: 500px;
+   height: 30px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   font-size: 15px;
+  
+                             
+}
+.inputfiledcontrol{
+    width: 350px;
+   height: 30px;
+   margin-top: 4px;
+   margin-bottom: 5px;
+   font-size: 15px;
+   border-radius: 6px;
+}
+.pickdropicon{
+    margin-top: 50%;
+    margin-left: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

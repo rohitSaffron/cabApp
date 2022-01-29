@@ -2,11 +2,11 @@
   flex: 1;
   background: $color-primary-dark;
   height: calc(100vh - 65px);
-  position: fixed;
+  
   width: 250px;
 
   &__ghost {
-    width: 250px;
+    background: #003566;
     height: calc(100vh - 65px);
   }
 

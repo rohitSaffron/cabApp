@@ -9,19 +9,10 @@ import Geocoder from "./Geocoder";
 // React router
 import { useNavigate } from "react-router-dom";
 
-// Date picking
-import MomentUtils from "@date-io/moment";
-import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-
-// Radio buttons //
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-
 // Dropdown
 import Box from "@mui/material/Box";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
+import { Modal, Form, Container, Row, Col, Button } from "react-bootstrap";
 
 // API
 import pmlAPI from "../api/pmlAPI";
@@ -29,22 +20,25 @@ import pmlAPI from "../api/pmlAPI";
 // Context
 import { useRideValue } from "../context/rideContext";
 import { jsx } from "@emotion/react";
-import { Modal, Button } from "react-bootstrap";
 import "./Allcss/Booking.css";
 import Select, { StylesConfig } from "react-select";
 import countryList from "react-select-country-list";
 import TextField from "@mui/material/TextField";
 import date from "date-and-time";
 import swal from "sweetalert";
-import "./Allcss/bookingSection.css"
-
-
+import "./Allcss/bookingSection.css";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import DateRangePicker from "@mui/lab/DateRangePicker";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
 
 const Booking = () => {
   // NOTE: The following context is for the use of the hidden map
   // const [{ pickup, dropoff, distance, duration, passengers, date }, dispatch] =
   //   useRideValue();
-  const [{ pickup, dropoff, passengers, date }, dispatch] = useRideValue();
+  const [{ pickup, dropoff, passengers, date, TypeTravel }, dispatch] =
+    useRideValue();
+  const matches = useMediaQuery("(max-width:910px)");
 
   const [selectedOption, setselectedOption] = useState("outstation");
   const [airportAction, setAirportAction] = useState("");
@@ -56,6 +50,11 @@ const Booking = () => {
   const navigate = useNavigate();
   const travale = JSON.parse(localStorage.getItem("userData"));
   const [btnloding, setbtnloding] = useState(false);
+  const [marge, setmargin] = useState("20px");
+  const [datevale ,setdatevle]=useState({
+    to:'',
+    from:''
+  })
   const [internationaldata, setinternationaldata] = useState({
     name: travale?.name || "No Data Found  plz LogIn",
     email: travale?.email || "No Data Found  plz LogIn",
@@ -75,20 +74,21 @@ const Booking = () => {
   const options = useMemo(() => countryList().getData(), []);
 
   useEffect(() => {
-    console.log(internationaldata);
-    if(internationaldata.name == "No Data Found  plz LogIn" && internationaldata.email =="No Data Found  plz LogIn"){
-      setbtnloding(true)
-    }else{
-      setbtnloding(false)
+    if (
+      internationaldata.name == "No Data Found  plz LogIn" &&
+      internationaldata.email == "No Data Found  plz LogIn"
+    ) {
+      setbtnloding(true);
+    } else {
+      setbtnloding(false);
     }
-
-    
-
-  
   }, [internationaldata]);
 
-  
   const handleSearchClick = async () => {
+
+   
+
+
     if (selectedOption === 3) {
       dispatch({
         type: "ADD_DROPOFF",
@@ -217,8 +217,14 @@ const Booking = () => {
     }
   };
 
+  useEffect(() => {
+    if (matches) {
+      setmargin("300px");
+    } else {
+      setmargin("20px");
+    }
+  }, [matches]);
 
-  
   return (
     <>
       <Modal
@@ -228,7 +234,6 @@ const Booking = () => {
         keyboard={false}
         size="lg"
         className="mainModal"
-        
       >
         <Modal.Header closeButton className="modalmain">
           <Modal.Title className="modaltitle">
@@ -255,13 +260,13 @@ const Booking = () => {
                   <div className="col-sm-6">
                     <div className="inputdiv">
                       <span className="inputfield">
-                        {internationaldata.name }
+                        {internationaldata.name}
                       </span>
                     </div>
 
                     <div className="inputdiv">
                       <span className="inputfield">
-                        {internationaldata.email }
+                        {internationaldata.email}
                       </span>
                     </div>
                     <div className="inputdiv">
@@ -454,8 +459,12 @@ const Booking = () => {
             )}
           </>
         </Modal.Body>
-        <Modal.Footer >
-          <Button variant="secondary"  className="btnmodal" onClick={handleClose}>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            className="btnmodal"
+            onClick={handleClose}
+          >
             Close
           </Button>
           <Button
@@ -470,35 +479,68 @@ const Booking = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      <section className="booking">
-        <div className="booking__container">
-          <h2 className="h2 h2--1">Plan Your Journey With Us!</h2>
-        </div>
+
+      <section
+        className="booking"
+        style={{
+          marginBottom: marge,
+        }}
+      >
+        <Container>
+          <Row>
+            <Col sm={3}></Col>
+            <Col sm={6}>
+              {" "}
+              <h2 className="h2 h2--1 headingmain">
+                Plan Your Journey With Us!
+              </h2>
+            </Col>
+            <Col sm={3}></Col>
+          </Row>
+        </Container>
 
         <div className="booking__container book_hover">
           <p
             className={`p p--1 ${
               selectedOption === "outstation" ? "active" : ""
             }`}
-            onClick={() => setselectedOption("outstation")}
+            onClick={() => {
+              let data = "outstation";
+              dispatch({
+                type: "TypeTravel",
+                data,
+              });
+              setselectedOption("outstation");
+            }}
           >
             Outstation/Other
           </p>
-          <p
-            className={`p p--1 ${selectedOption === "hourly" ? "active" : ""}`}
-            onClick={() => setselectedOption("hourly")}
-          >
-            Hourly
-          </p>
-          <p
-            className={`p p--1 ${selectedOption === "Airport" ? "active" : ""}`}
-            onClick={() => {
-              setselectedOption("Airport");
-              setshow(true);
-            }}
-          >
-            International Travel
-          </p>
+          {/* <p
+                  className={`p p--1 ${
+                    selectedOption === "hourly" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    let data ='hourly'
+                    dispatch({
+                      type: "TypeTravel",
+                      data,
+                    });
+                    setselectedOption("hourly")
+                  }}
+                >
+                  Hourly
+                </p>
+                <p
+                  className={`p p--1 ${
+                    selectedOption === "Airport" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    setselectedOption("Airport");
+                    setshow(true);
+                  }}
+                >
+                  International Travel
+                </p> */}
         </div>
 
         <div className="booking__container"></div>
@@ -518,18 +560,27 @@ const Booking = () => {
 
           <div className="booking__date">
             <h2 className="h2 ">Pick-up Date & Time</h2>
+            <input type="date" 
+            onChange={(e)=>{
+              setdatevle({
+                ...datevale,
+                to:e.target.value
+              })
+            }} />
 
-            <TextField
-              id="datetime-local"
-              type="datetime-local"
-              sx={{ width: 250, color: "c2cbd3", }}
-              InputLabelProps={{
-                shrink: true,
-              }}
-              onChange={(e) =>
-                dispatch({ type: "ADD_DATE", date: e.target.value })
+            <input type="date"
+             onChange={(e)=>{
+              let datedata={
+                to:datevale?.to,
+                from:e.target.value
+
+
               }
-            />
+              dispatch({
+                type: "ADD_DATE",
+                date:datedata
+              });
+            }} />
           </div>
 
           <div className="booking__passengers">
@@ -543,7 +594,7 @@ const Booking = () => {
                     onClick={handleClick}
                   >
                     <h2 className="h2 very_high">
-                      {passengers.adults} Adt, 
+                      {passengers.adults} Adt,
                       {passengers.children} Chd,
                       {passengers.infants} Inf
                     </h2>
@@ -653,7 +704,11 @@ const Booking = () => {
             </div>
           </div>
 
-          <button className="booking__button" onClick={handleSearchClick}>
+          <button className="booking__button" onClick={()=>{
+            handleSearchClick()
+            
+            
+            }}>
             <SearchRoundedIcon />
             <h2 className="h2">Search</h2>
           </button>

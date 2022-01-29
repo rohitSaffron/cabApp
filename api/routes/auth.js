@@ -8,7 +8,8 @@ router.post('/register', AuthController.register)
 router.post('/login', AuthController.login)
 router.post('/verify/:id', AuthController.verifyOtp)
 router.delete('/user/:id', AuthController.deleteuser)
-router.patch('/forgot/:id',  AuthController.forgotpassword)
+router.patch('/forgot/:id',  AuthController.changepsd)
+router.patch('/forgotpass/:id',  AuthController.forgotpassword)
 
 
 

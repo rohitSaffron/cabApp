@@ -80,14 +80,73 @@ h3{
 .acc_icon a i{
     color: #fad60b;
 }
+.acc_icon a {
+    line-height: 2; 
+    text-decoration: none;
+}
 .services a p{
     cursor: pointer;
+    margin-left: 12px;
 }
 .services .sight a{
     text-decoration: none;
     color: white;
     cursor: pointer;
 }
+.services a{
+    display: flex;
+    align-items: center;   
+    line-height: 2; 
+    text-decoration: none;
+}
+.services a i{
+    font-size: 12px;
+    color: #fad60b;
+}
+
+.aTagFooter{
+    color: white;
+    text-decoration: none;
+}
+.aTagFooter :hover {
+    color: white;
+    text-decoration: none;
+  }
+
+
+
+  .containerboot{
+    background: linear-gradient(to right, #003566, #001d3d); 
+  }
+
+
+  .heading{
+    color: #fad60b;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1.1px;
+  }
+
+  .colorwhite{
+      color: white;
+      font-size: 18px;
+      font-weight: normal;
+  }
+  .colorwhitepara{
+    color: white;
+    font-size: 15px;
+    font-weight: normal;
+}
+.colsmmargin{
+    margin-top: 27px;
+}
+
+
+
+
+
+
+
 
 
 

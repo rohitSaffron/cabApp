@@ -1,7 +1,7 @@
 export const initialState = {
   pickup: {},
   dropoff: {},
-  date: new Date(),
+  date:[]|| new Date(),
   passengers: {
     adults: 0,
     children: 0,
@@ -9,11 +9,13 @@ export const initialState = {
   },
   duration: 0,
   distance: "",
+  TypeTravel:'outstation'
 };
 
 const reducer = (state, action) => {
-  console.log(action);
+ 
   localStorage.setItem('travelDetail' , JSON.stringify(state))
+  console.log(action)
   switch (action.type) {
     case "ADD_PICKUP":
       return { ...state, pickup: action.pickup };
@@ -86,6 +88,8 @@ const reducer = (state, action) => {
 
     case "ADD_DISTANCE":
       return { ...state, distance: action.distance };
+      case "TypeTravel":
+        return { ...state, TypeTravel: action.data };
 
     default:
       return state;

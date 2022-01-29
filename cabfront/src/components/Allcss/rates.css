@@ -1,0 +1,13 @@
+.this_para .mt-big{
+    border-bottom: 0px solid white ;
+    margin-bottom: 0px;
+}
+.this_para p{
+    border-bottom: 0px solid white !important;
+}
+.rates .mt-big{
+    border-bottom: 8px solid #fbe729;
+}
+.this_para{
+    margin-top: 10px;
+}

@@ -13,7 +13,7 @@ import pmlAPI from "../api/pmlAPI";
 import CabCard from "./CabCard";
 
 const   CabsScreen = () => {
-  const [{ pickup, dropoff, date, passengers, distance }] = useRideValue();
+  const [{ pickup, dropoff, date, passengers, distance ,TypeTravel }] = useRideValue();
   const [cabs, setCabs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [travel , settravel]=useState([])
@@ -25,14 +25,27 @@ const   CabsScreen = () => {
   useEffect(() => {
     const tra=JSON.parse(localStorage.getItem('travelDetail'))
     settravel(tra)
+    console.log({passengers})
    
   }, [])
 
   const onPageLoad = useCallback(() => {
+    let localdata=JSON.parse(localStorage.getItem('travelDetail'))
+
+    let typeoftravel =localdata?.pickup?.text?.toLowerCase()
+    let totalpassanger= Number(localdata?.passengers?.adults)+Number(localdata?.passengers?.children)+Number(localdata?.passengers?.infants)
+    console.log(totalpassanger)
  
       pmlAPI.get('/api/allcabuser')
       .then(res=>{
-        setCabs(res.data);
+
+        let data=res?.data?.filter((w)=>{
+         let compareee= w.region.toLowerCase()
+         
+         return compareee ==typeoftravel && totalpassanger  <= Number(w.seats)
+        })
+     
+        setCabs(data);
         setTimeout(() => {
                 setLoading(false);
               }, 1000);
@@ -50,19 +63,24 @@ const   CabsScreen = () => {
 
 console.log(cabs)
   const renderCabs = () =>
-    cabs.map((cab) => (
+    cabs?.map((cab) => (
       <CabCard
-        carModel={cab.carModel}
-        seats={cab.seats}
-        luggage={cab.luggage}
-        price={cab.price}
-        cabImage={cab.cabImage}
-        cabId={cab.userId}
+        carModel={cab?.carModel}
+        seats={cab?.seats}
+        luggage={cab?.luggage}
+        price={cab?.price}
+        cabImage={cab?.cabImage}
+        cabId={cab?.userId}
         distance={travel?.distance}
+        region={cab?.region}
       />
     ));
 
   return (
+    <>
+    <br>
+  </br>
+  
     <div className="cab-screen">
       <div className="cab-grid">
         <div className="ride-info">
@@ -80,9 +98,9 @@ console.log(cabs)
             </div>
           )}
           <div className="ride-info__date">
-            <h3 className="h3 h3--1">Pick-up Date & time</h3>
+            <h3 className="h3 h3--1">Pick-up Date </h3>
             <h3 className="h3">
-              {moment(travel?.date).format("MMMM Do YYYY, h:mm a")}
+              {moment(travel?.date?.to).format("MMMM Do YYYY, h:mm a")} {travel?.date?.from ?'To':''} {moment(travel?.date?.from).format("MMMM Do YYYY, h:mm a")}
             </h3>
           </div>
           <div className="ride-info__passengers">
@@ -185,6 +203,7 @@ console.log(cabs)
         </div>
       </div>
     </div>
+    </>
   );
 };
 

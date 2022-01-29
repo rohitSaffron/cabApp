@@ -1,0 +1,180 @@
+.destination {
+  margin-bottom: 120px;
+}
+.destination__header {
+  height: 400px;
+  background: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1574&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.destination__header h1 {
+  font-size: 100px;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 40px 0px 10px 0px;
+  position: relative;
+  text-transform: uppercase;
+  color: white;
+}
+
+.destination__container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.destination__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 450px;
+  grid-gap: 30px;
+  margin-top: 40px;
+}
+
+.destination__grid .item1,
+.item2,
+.item3,
+.item4,
+.item5,
+.item6,
+.item7,
+.item8,
+.item9,
+.item10,
+.item11,
+.item12 {
+  background-color: red;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.item {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.item:hover {
+  transform: translateY(-10px);
+}
+
+.item span {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.item span::before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  height: 1px;
+  width: 60px;
+  background-color: yellow;
+  top: calc(50% + 25px);
+  left: 50%;
+  transform: translate(-25px, -50%) scale(0);
+}
+
+.item span:hover::before {
+  transform: translate(-25px, -50%) scale(1.2);
+}
+
+.item1 {
+  background-image: url('https://media.istockphoto.com/photos/india-gate-picture-id510795912?b=1&k=20&m=510795912&s=170667a&w=0&h=XLp6vDILq-QQ3-q3yh6YrGY-jxvWVfBXvs50izSNMzU=');
+}
+
+.item2 {
+  background-image: url('https://images.unsplash.com/photo-1598434192043-71111c1b3f41?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fG11bWJhaXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60');
+}
+
+.item3 {
+  background-image: url('https://i.pinimg.com/originals/ea/0f/c2/ea0fc26f0fa9d7f636079e8c0a8ef68f.jpg');
+}
+.item4 {
+  background-image: url('https://media.istockphoto.com/photos/morjim-beach-goa-india-picture-id123384481?b=1&k=20&m=123384481&s=170667a&w=0&h=Hvlxa4FBmG7MHmRaViauyJn31lBLawZqwt0rRXr-GZw=');
+}
+
+.item5 {
+  background-image: url('https://media.istockphoto.com/photos/backwaters-of-kerala-picture-id472909442?b=1&k=20&m=472909442&s=170667a&w=0&h=nhg8sAdDcECDO7wQvuzFA6O09feIngFAzGZyF86oKvA=');
+}
+
+.item6 {
+  background-image: url('https://images.unsplash.com/photo-1572782252655-9c8771392601?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHVuZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60');
+}
+
+.item7 {
+  background-image: url('https://images.unsplash.com/photo-1609115771934-4ddf685a4fa2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGthc2htaXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60');
+}
+
+.item8 {
+  background-image: url('https://media.istockphoto.com/photos/hindu-sadhu-sitting-on-a-boat-overlooking-varanasi-city-architecture-picture-id1164329797?b=1&k=20&m=1164329797&s=170667a&w=0&h=imumbLuKLNy_mi6OaENu1wzUDV1GA7XMfWfER0OmXKc=');
+}
+
+.item9 {
+  background-image: url('https://media.istockphoto.com/photos/christ-church-shimla-picture-id515816334?b=1&k=20&m=515816334&s=170667a&w=0&h=AqNr8tHYX0yusvjOeOgpDCemmXmqDB3ecgYqxP0UfPA=');
+}
+
+.item10 {
+  background-image: url('https://media.istockphoto.com/photos/golden-temple-amritsar-picture-id478673422?b=1&k=20&m=478673422&s=170667a&w=0&h=PcBKEC9uw5w9sC-yGCtJkKhWV_h-nHf-6S1twWbq99g=');
+}
+
+.item11 {
+  background-image: url('https://media.istockphoto.com/photos/taj-mahal-agra-india-monument-of-love-in-blue-sky-picture-id519330110?b=1&k=20&m=519330110&s=170667a&w=0&h=T_0dK2ox148Vmr8DVAD7OslruUOAsPZLk_L-JPLQ2is=');
+}
+
+.item12 {
+  background-image: url('https://media.istockphoto.com/photos/mehrangharh-fort-and-jaswant-thada-mausoleum-in-jodhpur-rajasthan-picture-id805563154?b=1&k=20&m=805563154&s=170667a&w=0&h=o_qAAzJKWXDTzXmpy0hdDIF0pfM2ERsMFu_X_umO4lI=');
+}
+.popular-destinations h1 {
+  font-size: 30px;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 40px 0px 10px 0px;
+  position: relative;
+}
+.popular-destinations h1::before {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 3px;
+  width: 100px;
+  background-color: yellow;
+  bottom: -15px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 1200px) {
+  .destination__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .destination__grid {
+    grid-template-columns: 1fr;
+  }
+}

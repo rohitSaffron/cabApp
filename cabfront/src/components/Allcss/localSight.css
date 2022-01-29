@@ -1,0 +1,148 @@
+body {
+  line-height: 2.3;
+}
+
+.localContainer {
+  background-image: url('../../imges/pml\ images-02.jpg');
+  background-repeat: no-repeat;
+  background-size: 2100px 500px;
+  height: 300px;
+  opacity: 0.7;
+}
+.localColh1 {
+  color: white;
+  text-align: center;
+  margin-top: 130px;
+}
+
+.titlemain {
+  font-size: 60px;
+  font-weight: bolder;
+  text-shadow: 0px 7px 30px #000000;
+}
+
+.secondTitle {
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  color: #092348;
+  border-bottom: 7px solid #fad60b;
+  width: 128px;
+}
+.titleSecond {
+  font-size: 20px;
+  font-weight: bolder;
+}
+.localSightPara {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 400;
+  color: rgb(105, 103, 103);
+}
+.localSightParaSecond {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 400;
+  color: rgb(105, 103, 103);
+}
+.textField,
+.text_Field {
+  font-size: 10px;
+  transform: scale(1.2);
+  height: 95px;
+  width: 330px;
+  font-weight: normal;
+}
+.textFieldsingle {
+  font-size: 10px;
+  transform: scale(1.2);
+  height: 50px;
+  width: 330px;
+  font-weight: normal;
+  padding-left: 60px;
+}
+.good_box {
+  margin-top: 5px;
+  text-align: center;
+}
+
+.selectcountry {
+  font-weight: normal;
+  width: 395px;
+  left: 78px;
+}
+.selectcountry .css-1s2u09g-control {
+  border-width: 2.3px;
+}
+.selectcountry .css-1s2u09g-control:hover {
+  border-color: rgba(0, 0, 0, 0.87);
+}
+
+.MuiFormControl-root .MuiInputLabel-root {
+  line-height: 1.9;
+  left: -3px;
+  margin: -6px 0px 0px 0px;
+}
+.MuiFormControl-root .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+  line-height: 1.9;
+  left: -3px;
+  top: 6px;
+  font-size: 12px;
+}
+#outlined-basic {
+  color: rgb(92 91 91 / 87%);
+  font-weight: normal !important;
+  font-size: 11px !important;
+}
+.at_end p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 400;
+  color: rgb(105, 103, 103);
+}
+
+.col-sm-1 .css-i4bv87-MuiSvgIcon-root {
+  width: 25px;
+  height: 25px;
+}
+.at_end button {
+  width: 101px;
+  height: 50px;
+  margin-left: 130px;
+  background-color: #092348;
+  color: white;
+  font-size: 16px;
+  margin-top: 50px;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+.css-319lph-ValueContainer {
+  text-align: left;
+}
+.css-319lph-ValueContainer:hover {
+  border-radius: black;
+}
+.location_now {
+  margin-left: 80px;
+  width: 50px;
+}
+.geocoder {
+  border-style: solid;
+  border-width: thin;
+  border-color: #e0d9d9;
+  /* width: initial; */
+}
+.phoneTextfield {
+  text-align: left;
+  justify-content: left;
+  margin-left: 140px;
+}
+.submitButton {
+  transform: scaleX(1.4);
+  padding-left: 26px;
+}

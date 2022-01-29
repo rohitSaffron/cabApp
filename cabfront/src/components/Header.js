@@ -5,18 +5,69 @@ import MenuIcon from "@mui/icons-material/Menu";
 import "./Allcss/header.css";
 import { Drawer, ListItem, Divider, List, ListItemText } from "@mui/material";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import { useRideValue } from "../context/rideContext";
 
 const Header = () => {
+  const [{ pickup, dropoff, date, passengers, distance }, dispatch] =
+    useRideValue();
   const navigate = useNavigate();
   const [key, setkey] = useState("");
-  const [userdata, setuserData] = useState("");
+  const [userdata, setuserData] = useState({
+    name: "",
+  });
   const [refresh, setrefresh] = useState("hiiii");
-  const matches = useMediaQuery("(max-width:940px)");
+  const matches = useMediaQuery("(max-width:1100px)");
   const [drawerOpen, setdrawer] = useState(false);
+  const [deviceType, setDeviceType] = useState("");
 
   const vvvv = localStorage.getItem("userData");
   const ggg = vvvv;
   const jsonnn = JSON.parse(ggg);
+
+  useEffect(() => {
+    let data = {
+      name: "",
+    };
+    if (jsonnn?.name) {
+      setuserData(jsonnn);
+    } else {
+      console.log("noooo");
+      localStorage.setItem("userData", JSON.stringify(data));
+      setuserData(data);
+    }
+  }, []);
+
+  useEffect(() => {
+    let hasTouchScreen = false;
+    if ("maxTouchPoints" in navigator) {
+      hasTouchScreen = navigator.maxTouchPoints > 0;
+    } else if ("msMaxTouchPoints" in navigator) {
+      hasTouchScreen = navigator.msMaxTouchPoints > 0;
+    } else {
+      const mQ = window.matchMedia && matchMedia("(pointer:coarse)");
+      if (mQ && mQ.media === "(pointer:coarse)") {
+        hasTouchScreen = !!mQ.matches;
+      } else if ("orientation" in window) {
+        hasTouchScreen = true; // deprecated, but good fallback
+      } else {
+        // Only as a last resort, fall back to user agent sniffing
+        var UA = navigator.userAgent;
+        hasTouchScreen =
+          /\b(BlackBerry|webOS|iPhone|IEMobile)\b/i.test(UA) ||
+          /\b(Android|Windows Phone|iPad|iPod)\b/i.test(UA);
+      }
+    }
+    if (hasTouchScreen) {
+      setDeviceType("Mobile");
+    } else {
+      setDeviceType("Desktop");
+    }
+  }, []);
+
+
+useEffect(()=>{
+  console.log(deviceType)
+},[deviceType])
 
   const setDrawerOpen = (isDrawerOpen) => {
     setdrawer({
@@ -76,7 +127,7 @@ const Header = () => {
                 />
               </ListItem>
               <ListItem>
-                <h3>{jsonnn?.name}</h3>
+                <h3>{userdata?.name || jsonnn?.name}</h3>
               </ListItem>
               <Divider />
               <ListItem button divider>
@@ -89,6 +140,16 @@ const Header = () => {
                   <h4 className="heaing">Cabs</h4>
                 </Link>
               </ListItem>
+              <ListItem button divider>
+                <Link
+                  to="/activities"
+                  onClick={() => {
+                    toggleDrawer();
+                  }}
+                >
+                  <h4 className="heaing">Activities</h4>
+                </Link>
+              </ListItem>
               <ListItem button>
                 <ListItemText
                   sx={{ fontSize: 70 }}
@@ -99,7 +160,7 @@ const Header = () => {
                 />
               </ListItem>
               <Divider light />
-              {jsonnn?.token ? (
+              {userdata?.token || jsonnn?.token ? (
                 <ListItem button>
                   <Link
                     to="/dashboard"
@@ -114,7 +175,7 @@ const Header = () => {
                 ""
               )}
 
-              {jsonnn?.name == "" ? (
+              {userdata?.name == "" && jsonnn?.name == "" ? (
                 <>
                   <Divider light />
                   <ListItem button>
@@ -209,23 +270,25 @@ const Header = () => {
                 <li>
                   <Link to="/">Cabs</Link>
                 </li>
-                {jsonnn?.token ? (
+                {userdata?.token || jsonnn?.token ? (
                   <li>
                     <Link to="/dashboard">Dashboard</Link>
                   </li>
                 ) : (
                   ""
                 )}
-
+                 <li>
+                  <Link to="/activities">Activities</Link>
+                </li>
+              
                 <li>
-                  
                   <Link to="/aboutus">About us</Link>
                 </li>
-              </ul>
+               </ul>
             </div>
 
             <div className="header__container">
-              {jsonnn?.name == "" ? (
+              {userdata?.name == "" && jsonnn?.name == "" ? (
                 <ul className="header__navlist">
                   <li>
                     <a>
@@ -243,9 +306,14 @@ const Header = () => {
               ) : (
                 <ul className="header__navlist">
                   <li>
-                    <a style={{
-                      color:'white'
-                    }}> Hi, {jsonnn?.name}</a>
+                    <a
+                      style={{
+                        color: "white",
+                      }}
+                    >
+                      {" "}
+                      Hi, {userdata?.name || jsonnn?.name}
+                    </a>
                   </li>
                   <li>
                     <a>

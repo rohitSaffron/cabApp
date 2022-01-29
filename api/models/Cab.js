@@ -19,6 +19,10 @@ const cabSchema = new Schema(
       type: String,
       required: [true, "plz add Available Seats"],
     },
+    region:{
+      type:String,
+      required: [true, "plz add region "],
+    },
     price: {
       type: String,
       required: [true, "plz add Price Per Hour"],

@@ -9,13 +9,13 @@ const DashBoardGraphs = () => {
         id: "basic-bar",
       },
       xaxis: {
-        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+        categories: ["OCt", 'Nov', 'DEC', "Jan"],
       },
     },
     series: [
       {
         name: "series-1",
-        data: [30, 40, 45, 50, 49, 60, 70, 91],
+        data: [30, 40, 45, 50],
       },
     ],
   };
@@ -37,20 +37,7 @@ const DashBoardGraphs = () => {
         </div>
       </div>
 
-      <div className="data__row">
-        <div className="data__chart">
-          <Chart
-            options={barState.options}
-            series={barState.series}
-            type="bar"
-            width="500"
-          />
-        </div>
-
-        <div className="data__chart">
-          <PieChart />
-        </div>
-      </div>
+     
     </div>
   );
 };

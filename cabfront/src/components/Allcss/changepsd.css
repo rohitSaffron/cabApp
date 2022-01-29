@@ -98,7 +98,24 @@
     margin-top: 100px;
 }
 
-
+.divLogin{
+    background-image: url('https://img.etimg.com/thumb/width-1200,height-900,imgsize-437061,resizemode-1,msid-78201700/wealth/spend/planning-a-holiday-in-next-few-months-avail-these-discounts-on-flights-hotels-travel-packages-now.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+   
+}
+.colloginform{
+    margin-top: 110px;
+    background-image: url('../../imges/white.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 600px;
+    border-radius: 15px;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+}
 
 
 

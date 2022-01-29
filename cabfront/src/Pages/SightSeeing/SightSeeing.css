@@ -1,0 +1,34 @@
+.sightseeing {
+  margin: 120px 0;
+}
+
+.sightseeing__header {
+  height: 400px;
+  background: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1574&q=80');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.sightseeing__header h1 {
+  font-size: 100px;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 40px 0px 10px 0px;
+  position: relative;
+  text-transform: uppercase;
+  color: white;
+}
+
+.sightseeing__container {
+  width: 90%;
+  max-width: 1400px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-evenly;
+}

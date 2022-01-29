@@ -57,6 +57,7 @@ export default function AllCabs() {
       seats: editcab.seats,
       price: editcab.price,
       cabImage: editcab.cabImage,
+      reagion : editcab.reagion
     };
     console.log(data);
 
@@ -81,7 +82,7 @@ export default function AllCabs() {
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title className="text_inrease_lable">
-            Modal heading
+           Add Cab
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -169,6 +170,26 @@ export default function AllCabs() {
                 />
               </div>
             </div>
+            <div className="cab-form__container">
+              <div className="cab-form__input">
+                <label htmlFor="carImage">
+                  <p className="p p--1">Reagion </p>
+                </label>
+                <input
+                  className="inputAllcab"
+                  type="text"
+                  id="carImage"
+                  placeholder="Car image..."
+                  value={editcab?.reagion}
+                  onChange={(e) => {
+                    seteditcab({
+                      ...editcab,
+                      reagion: e.target.value,
+                    });
+                  }}
+                />
+              </div>
+            </div>
 
             <div className="cab-form__container">
               <div className="cab-form__input">
@@ -216,17 +237,17 @@ export default function AllCabs() {
                   <>
                     <div className="col-sm-6 mainallcabdiv">
                       <div className="row secondallcabdiv">
-                        <div className="col-sm-2">
+                        <div className="col-sm-5">
                           <img
                             src={w.cabImage}
                             alt="user"
                             className="imgallcabs"
                           />
                         </div>
-                        <div className="col-sm-5">
+                        <div className="col-sm-3">
                           <div>
                             <label className="text_inrease_lable">
-                              Car Modal
+                              Car Model
                             </label>
                             <h4 className="allcabsheading">{w?.carModel}</h4>
                           </div>
@@ -243,7 +264,7 @@ export default function AllCabs() {
                             <h4> {w?.luggage} </h4>
                           </div>
                         </div>
-                        <div className="col-sm-4">
+                        <div className="col-sm-3">
                           <div>
                             <label className="text_inrease_lable">
                               Price Per KM
@@ -252,9 +273,9 @@ export default function AllCabs() {
                           </div>
                           <div>
                             <label className="text_inrease_lable">
-                              Car ID{" "}
+                              Reagion{" "}
                             </label>
-                            <h4> {w?._id} </h4>
+                            <h4> {w?.region} </h4>
                           </div>
                           <div>
                             <label className="text_inrease_lable">

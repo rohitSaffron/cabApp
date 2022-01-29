@@ -1,45 +1,51 @@
-.book_hover p:hover{
-    background-color: white;
-    color: #092348;
+.book_hover p:hover {
+  background-color: white;
+  color: #092348;
 }
 .booking__button {
-    color: #092348;
+  color: #092348;
 }
 .booking__button h2 {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
-.booking__button svg{
-    width: 30px;
-    height: 30px;
-    color: #092348;
+.booking__button svg {
+  width: 30px;
+  height: 30px;
+  color: #092348;
 }
 .booking__passengers .passenger-counter h2 {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
 }
-.passenger-dropdown__left h3{
-    font-size: 1.5rem;
+.passenger-dropdown__left h3 {
+  font-size: 1.5rem;
 }
-.passenger-dropdown__right h3{
-    margin-bottom: 0px;
+.passenger-dropdown__right h3 {
+  margin-bottom: 0px;
 }
-.booking__container .h2--1{
-        color: #fad60b;
-        font-weight: bold;
-        font-size: 3.3rem;
+.booking__container .h2--1 {
+  color: #fad60b;
+  font-weight: bold;
+  font-size: 3.3rem;
 }
-.passenger-dropdown__right .h3--1  {
-    color: #092348
+.passenger-dropdown__right .h3--1 {
+  color: #092348;
 }
-.booking__pickup .h2 , .booking__dropoff .h2, .booking__date .h2, .booking__passengers .h2{
-    color: #092348;
+.booking__pickup .h2,
+.booking__dropoff .h2,
+.booking__date .h2,
+.booking__passengers .h2 {
+  color: #092348;
 }
 .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
-    height: 38px;
-    color: rgb(92 91 91 / 87%);
+  height: 38px;
+  color: rgb(92 91 91 / 87%);
 }
-.MuiOutlinedInput-root #datetime-local{
-    color: rgb(92 91 91 / 87%);
+.MuiOutlinedInput-root #datetime-local {
+  color: rgb(92 91 91 / 87%);
 }
-.passenger-counter .very_high{
-    color: rgb(92 91 91 / 87%);
+.passenger-counter .very_high {
+  color: rgb(92 91 91 / 87%);
+}
+.headingmain {
+  color: #fbe729;
 }
