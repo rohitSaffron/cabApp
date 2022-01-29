@@ -7,8 +7,10 @@ import DashBoardGraphs from "./DashBoardGraphs";
 import DashboardCabs from "./DashboardCabs";
 import International from "./International";
 import AllCabs from "./AllCabs";
+import AllSiteSeen from "./AllSiteSeen";
+import AddSiteSeen from "./AddSiteSeen";
 
-const DashboardScreen = () => {
+const  DashboardScreen = () => {
   const [currentPage , setcurrentPage]=useState('Dashboard')
 
   const location = useLocation();
@@ -24,6 +26,14 @@ useEffect(()=>{
 
   }else if(location.pathname =='/dashboard/cabs'){
     setcurrentPage('Add New Cab')
+
+  }
+  else if(location.pathname =='/dashboard/allsiteseen'){
+    setcurrentPage(' All SiteSeen Cab')
+
+  }
+  else if(location.pathname =='/dashboard/addsiteseen'){
+    setcurrentPage('Add SiteSeen')
 
   }else{
     setcurrentPage('Dashboard')
@@ -53,12 +63,14 @@ useEffect(()=>{
             className="navbar__info"
             style={{
               position: "relative",
-              top: "0px",
+              top: "13px",
             }}
           >
             <div className="navbar__image">
+            
+
               <img
-                src="https://images.unsplash.com/photo-1604004555489-723a93d6ce74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+                src="https://cdn4.vectorstock.com/i/1000x1000/07/33/taxi-driver-avatar-character-vector-12750733.jpg"
                 alt="user"
               />
             </div>
@@ -67,13 +79,13 @@ useEffect(()=>{
               {JSON.parse(localStorage.getItem("userData")).name}
             </h3>
           </div>
-
+         
           <div
             className="navbar__container"
             style={{
               position: "relative",
               top: "0px",
-              marginLeft: "50px"
+              marginLeft: "30px"
             }}
           >
             <Link to="/dashboard/reports">
@@ -84,6 +96,12 @@ useEffect(()=>{
             </Link>
             <Link to="/dashboard/cabs">
               <h3 className="h3 h3--2"> Add Cab</h3>
+            </Link>
+            <Link to="/dashboard/allsiteseen">
+              <h3 className="h3 h3--2"> All SiteSeen Cab</h3>
+            </Link>
+            <Link to="/dashboard/addsiteseen">
+              <h3 className="h3 h3--2"> Add SiteSeen</h3>
             </Link>
           </div>
       
@@ -100,6 +118,8 @@ useEffect(()=>{
             <Route path="/reports" element={<DashBoardGraphs />} />
             <Route path="/allcabs" element={<AllCabs />} />
             <Route path="/cabs" element={<DashboardCabs />} />
+            <Route path="/allsiteseen" element={<AllSiteSeen />} />
+            <Route path="/addsiteseen" element={<AddSiteSeen />} />
           </Routes>
         </div>
       </div>
