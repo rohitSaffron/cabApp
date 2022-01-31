@@ -16,6 +16,157 @@ export default function AllCabs() {
   const [editcab, seteditcab] = useState([]);
   const [forrefresh, setforrefresh] = useState();
 
+
+
+  let allstate = [
+    {
+      abbreviation: "AN",
+      name: "Andaman and Nicobar Islands",
+    },
+    {
+      abbreviation: "AP",
+      name: "Andhra Pradesh",
+    },
+    {
+      abbreviation: "AR",
+      name: "Arunachal Pradesh",
+    },
+    {
+      abbreviation: "AS",
+      name: "Assam",
+    },
+    {
+      abbreviation: "BR",
+      name: "Bihar",
+    },
+    {
+      abbreviation: "CG",
+      name: "Chandigarh",
+    },
+    {
+      abbreviation: "CH",
+      name: "Chhattisgarh",
+    },
+    {
+      abbreviation: "DH",
+      name: "Dadra and Nagar Haveli",
+    },
+    {
+      abbreviation: "DD",
+      name: "Daman and Diu",
+    },
+    {
+      abbreviation: "DL",
+      name: "Delhi",
+    },
+    {
+      abbreviation: "GA",
+      name: "Goa",
+    },
+    {
+      abbreviation: "GJ",
+      name: "Gujarat",
+    },
+    {
+      abbreviation: "HR",
+      name: "Haryana",
+    },
+    {
+      abbreviation: "HP",
+      name: "Himachal Pradesh",
+    },
+    {
+      abbreviation: "JK",
+      name: "Jammu and Kashmir",
+    },
+    {
+      abbreviation: "JH",
+      name: "Jharkhand",
+    },
+    {
+      abbreviation: "KA",
+      name: "Karnataka",
+    },
+    {
+      abbreviation: "KL",
+      name: "Kerala",
+    },
+    {
+      abbreviation: "LD",
+      name: "Lakshadweep",
+    },
+    {
+      abbreviation: "MP",
+      name: "Madhya Pradesh",
+    },
+    {
+      abbreviation: "MH",
+      name: "Maharashtra",
+    },
+    {
+      abbreviation: "MN",
+      name: "Manipur",
+    },
+    {
+      abbreviation: "ML",
+      name: "Meghalaya",
+    },
+    {
+      abbreviation: "MZ",
+      name: "Mizoram",
+    },
+    {
+      abbreviation: "NL",
+      name: "Nagaland",
+    },
+    {
+      abbreviation: "OR",
+      name: "Odisha",
+    },
+    {
+      abbreviation: "PY",
+      name: "Puducherry",
+    },
+    {
+      abbreviation: "PB",
+      name: "Punjab",
+    },
+    {
+      abbreviation: "RJ",
+      name: "Rajasthan",
+    },
+    {
+      abbreviation: "SK",
+      name: "Sikkim",
+    },
+    {
+      abbreviation: "TN",
+      name: "Tamil Nadu",
+    },
+    {
+      abbreviation: "TS",
+      name: "Telangana",
+    },
+    {
+      abbreviation: "TR",
+      name: "Tripura",
+    },
+    {
+      abbreviation: "UP",
+      name: "Uttar Pradesh",
+    },
+    {
+      abbreviation: "UK",
+      name: "Uttarakhand",
+    },
+    {
+      abbreviation: "WB",
+      name: "West Bengal",
+    },
+  ];
+
+
+
   useEffect(() => {
     const id = JSON.parse(localStorage.getItem("userData")).id;
 
@@ -57,7 +208,7 @@ export default function AllCabs() {
       seats: editcab.seats,
       price: editcab.price,
       cabImage: editcab.cabImage,
-      reagion : editcab.reagion
+      region : editcab.region
     };
     console.log(data);
 
@@ -67,7 +218,7 @@ export default function AllCabs() {
       .put(`/api/editcab/${id}`, data)
       .then((res) => {
         console.log(res);
-        setforrefresh("hhhhh");
+        setforrefresh(Math.random());
         setShow(false);
       })
       .catch((err) => {
@@ -175,19 +326,26 @@ export default function AllCabs() {
                 <label htmlFor="carImage">
                   <p className="p p--1">Reagion </p>
                 </label>
-                <input
-                  className="inputAllcab"
-                  type="text"
-                  id="carImage"
-                  placeholder="Car image..."
-                  value={editcab?.reagion}
-                  onChange={(e) => {
-                    seteditcab({
-                      ...editcab,
-                      reagion: e.target.value,
-                    });
-                  }}
-                />
+                 <select
+            style={{
+              fontSize: "16px",
+              fontWeight: "normal",
+            }}
+            value={editcab.region}
+            onChange={(e)=>{
+              console.log(e.target.value)
+              seteditcab({
+                ...editcab,
+                region: e.target.value,
+              });
+            }}
+          >
+            {allstate?.map((w) => {
+              return (
+                <option value={w.name}>{w.name}</option>
+              )
+            })}
+          </select>
               </div>
             </div>
 
@@ -235,7 +393,9 @@ export default function AllCabs() {
               data?.map((w) => {
                 return (
                   <>
-                    <div className="col-sm-6 mainallcabdiv">
+                 
+                  
+                    <div className="col-sm-9 mainallcabdiv">
                       <div className="row secondallcabdiv">
                         <div className="col-sm-5">
                           <img
@@ -290,6 +450,7 @@ export default function AllCabs() {
                               onClick={() => {
                                 setShow(true);
                                 seteditcab(w);
+                                console.log(w)
                               }}
                             >
                               <EditIcon className="svg_icons" />
@@ -299,13 +460,16 @@ export default function AllCabs() {
                           <div className="icondiv">
                             <a
                               onClick={() => {
-                                swal(
-                                  "Note !",
-                                  "Sure Want to Delete",
-                                  "warning"
-                                ).then(() => {
-                                 
-                                  pmlAPI
+                                swal({
+                                  title: "Are you sure?",
+                                  text: "Want To delete Cab",
+                                  icon: "warning",
+                                  buttons: true,
+                                  dangerMode: true,
+                                })
+                                .then((willDelete) => {
+                                  if (willDelete) {
+                                    pmlAPI
                                     .delete(`/api/${w._id}`)
                                     .then((res) => {
                                       console.log(res);
@@ -315,8 +479,16 @@ export default function AllCabs() {
                                     .catch((err) => {
                                       console.log(err);
                                     });
-                                    
+                                   
+                                  } else {
+                                    swal("Cab  is safe!");
+                                  }
                                 });
+
+
+
+
+
                               }}
                             >
                               <RemoveCircleOutlineIcon className="svg_icons" />
@@ -330,7 +502,7 @@ export default function AllCabs() {
               })}
           </>
         ) : (
-          <div className="col-sm-6 mainallcabdiv">
+          <div className="col-sm-12 mainallcabdiv">
             <div className="row secondallcabdiv">
               <div className="col-sm-2">
                 <img src={nodataimg} alt="user" className="imgallcabs" />

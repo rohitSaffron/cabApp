@@ -14,6 +14,7 @@ const cabAdd = (req, res, next) => {
     price: req.body.price,
     region:req.body.region,
     cabImage: req.body.cabImage,
+    city:req.body.city
   });
 
   cab

@@ -134,6 +134,7 @@ app.post("/api/localsightseen", async (req, res) => {
     <li>Name: ${req.body.name}</li>
     <li>Email: ${req.body.email}</li>
     <li>Phone: ${req.body.phone}</li>
+    <li> Package Name : ${Package_Name} </li>
     <li>Pickup location: ${req.body.location}</li>
     
         <li>Date: ${req.body.date}</li>

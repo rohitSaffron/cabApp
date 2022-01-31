@@ -2,20 +2,21 @@ const SideSeen =require('../models/SideSeen')
 
 
 
+
 const AddSites =async (req, res)=>{
    try{
        let rating = Math.random() * (5 - 4) + 4;
 
    
     let Site = new SideSeen({
-      stateName: req.body.stateName,
-      stateImg: req.body.stateImg,
+      stateName: req.body.statename,
+      stateImglink: req.body.stateImglink,
       title: req.body.title,
       rating:rating ,
       price: req.body.price ,
       typePark: req.body.typePark ,
       sightLocation: req.body.sightLocation,
-      featuresImage: req.body.featuresImage
+      featuresImagelink: req.body.featuresImagelink
     });
 
    
@@ -84,10 +85,12 @@ try{
 const deletesite = async (req, res, next) => {
     let id = req.params.id
   try {
-    SideSeen.findByIdAndDelete(id, function (err, docs) {
+    SideSeen.findByIdAndDelete({_id:id}, function (err, docs) {
       if (err) {
        res.json({
-         err
+         err,
+         id,
+         massage:'Something Went wrong'
        }).status(400)
       } else {
         res.json({
@@ -98,6 +101,7 @@ const deletesite = async (req, res, next) => {
   } catch (err) {
     res.json({
       err,
+      massage:'hiii'
     }).status(500)
   }
 };
@@ -122,7 +126,8 @@ module.exports = {
     AllSites,
     updateSite,
     deletesite,
-    AddSites
+    AddSites,
+   
    
   };
 

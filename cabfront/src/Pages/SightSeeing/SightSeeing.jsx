@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import pmlAPI from "../../api/pmlAPI";
 
 // css
 import './SightSeeing.css'
@@ -11,24 +12,30 @@ import Footer from '../../components/Footer'
 
 const SightSeeing = (props) => {
   const [sights, setSights] = useState([])
+  const [data, setdata] = useState([]);
   const location = useParams()
 
-  useEffect(() => {
-    const featchData = async () => {
-      try {
-        const res = await axios.get(
-          'http://cabbooking.masterdomain.in/index.php/wp-json/jet-cct/sight_seeing'
-        )
-        const filteredSights = res.data.filter(
-          (item) => `${item.category}`.toLocaleLowerCase() == `${location.location}`.toLocaleLowerCase()
-        )
-        setSights(filteredSights)
-      } catch (err) {
-        console.error(err)
-      }
+
+
+  useEffect(async () => {
+    try{
+      let res = await pmlAPI.get("/api/siteseen")
+
+   
+
+      const fillter = res?.data?.filter((w)=>{
+        return w.stateName ==location.location
+      })
+      console.log(fillter)
+      setSights(fillter)
     }
-    featchData()
-  }, [])
+    catch(err){
+      console.log(err)
+
+    }
+   
+      
+  }, []);
   return (
     <>
       <header className='sightseeing__header'>

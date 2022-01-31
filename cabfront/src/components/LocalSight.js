@@ -1,21 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { Container, Col, Row, Form, Button } from "react-bootstrap";
-import { TextField, Checkbox } from "@mui/material";
+import { TextField, Checkbox, Grid } from "@mui/material";
 import "./Allcss/localSight.css";
 import Footer from "./Footer";
 import { useRideValue } from "../context/rideContext";
-import Geocoder from "./Geocoder";
+import indianCitiesDatabase from "indian-cities-database";
+import { useParams } from "react-router-dom";
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 // API
 import pmlAPI from "../api/pmlAPI";
 import swal from "sweetalert";
 // React router
 import { useNavigate } from "react-router-dom";
 
+// multi select multi
+import Select from "react-select";
+import { width } from "@mui/system";
+
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
+
+const gridStyle = {
+  textAlign: "center",
+  paddingLeft: 2,
+  paddingRight: 2,
+  paddingTop:7
+};
+
+
 
 export default function LocalSight() {
   const [{ pickup, dropoff, passengers, date }, dispatch] = useRideValue();
+  const citess = indianCitiesDatabase.cities;
   const navigate = useNavigate();
+  const location = useParams();
+  const matches = useMediaQuery('(max-width:1540px)');
 
   const [data, setdata] = useState({
     name: "",
@@ -23,30 +43,22 @@ export default function LocalSight() {
     phone: "",
     passengers: "",
     date: "",
+    PickUplocation:'',
+    Package_Name:location.package
+
   });
   const [loading, setloading] = useState(false);
+  const [option, setoption] = useState([]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [widthsize , setwidthsize]=useState(360)
 
   useEffect(() => {
-    if (Object.keys(pickup).length !== 0 && Object.keys(dropoff).length !== 0) {
-      fetch(
-        `https://api.mapbox.com/directions/v5/mapbox/driving/${pickup.center[0]},${pickup.center[1]};${dropoff.center[0]},${dropoff.center[1]}?access_token=pk.eyJ1IjoiaGVjdG9yZzIyMTEiLCJhIjoiY2t0eWtxbmhtMDhwMTJwcG1jZXd0b3VhMSJ9.8XhBErdMP3PqsR-xN-NkMA`
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.routes) {
-            console.log(data);
-            dispatch({
-              type: "ADD_DURATION",
-              duration: data.routes[0]?.duration,
-            });
-            dispatch({
-              type: "ADD_DISTANCE",
-              distance: data.routes[0]?.distance,
-            });
-          }
-        });
-    }
-  }, [dispatch, pickup, dropoff]);
+    let dataoption = citess?.map((w) => {
+      return { label: w.city, value: `${w.city}  ${w.state}` };
+    });
+
+    setoption(dataoption);
+  }, []);
 
   const localsightseenBtn = async (event) => {
     event.preventDefault();
@@ -57,7 +69,8 @@ export default function LocalSight() {
         name: data.name,
         email: data.email,
         phone: data.phone,
-        location: pickup.place_name,
+        location: data.PickUplocation,
+        Package_Name:data.Package_Name,
         passengers: data.passengers,
         date: data.date,
       };
@@ -91,11 +104,34 @@ export default function LocalSight() {
       setloading(false);
     }
   };
-
+  const styles = {
+    container: (base) => ({
+      ...base,
+      flex: 1,
+     
+      width: '900px',
+      minWidth: "200px",
+      maxWidth:'400px',
+      marginLeft:230,
+      marginRight:100
+     
+    }),
+  };
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }, []);
 
+  useEffect(()=>{
+    if(matches){
+      setwidthsize(250)
+    }
+
+  },[matches])
+
+  const onMenuOpen = () => setIsMenuOpen(true);
+  const onMenuClose = () => setIsMenuOpen(false);
+
+  console.log(location.package);
   return (
     <>
       <br></br>
@@ -130,13 +166,22 @@ export default function LocalSight() {
               </p>
             </Col>
           </Row>
+          <br></br>
+          <Row>
+            <Col>
+              <h2 style={{ paddingLeft: " 80px" }}>Package Name :- </h2>
+            </Col>
+            <Col>
+              <h2>{location.package} </h2>
+            </Col>
+            <Col></Col>
+          </Row>
 
           <br></br>
 
           <div className="good_box">
-            <Row className="textfieldRow">
-              <Col sm>
-                {" "}
+            <Grid container spacing={2} sx={gridStyle}>
+              <Grid item xs={12}>
                 <TextField
                   id="outlined-basic"
                   label="Name"
@@ -150,10 +195,19 @@ export default function LocalSight() {
                       name: e.target.value,
                     });
                   }}
+                  sx={{
+                    width: {
+                      xxs: 100,
+                      xs: 150,
+                      sm: 200,
+                      md: 300,
+                      lg: 400,
+                      xl: 500,
+                    },
+                  }}
                 />
-              </Col>
-              <Col sm>
-                {" "}
+              </Grid>
+              <Grid item xs={12} sx={gridStyle}>
                 <TextField
                   id="outlined-basic"
                   label="Email"
@@ -168,24 +222,39 @@ export default function LocalSight() {
                       email: e.target.value,
                     });
                   }}
+                  sx={{
+                    width: {
+                      xxs: 100,
+                      xs: 150,
+                      sm: 200,
+                      md: 300,
+                      lg: 400,
+                      xl: 500,
+                    },
+                  }}
                 />
-              </Col>
-            </Row>
+              </Grid>
 
-            <Row className="textfieldRow">
-              <Col sm className="location_now">
-                {" "}
-                <div className="geocoder">
-                  <Geocoder
-                    id="outlined-basic"
-                    variant="outlined"
-                   // className="textField "
-                    number={1}
-                  />
-                </div>
-              </Col>
-              <Col sm className="phoneTextfield">
-                {" "}
+              <Grid item xs={12} sx={gridStyle}>
+                <Select
+                  styles={styles}
+                  aria-labelledby="aria-label"
+                  inputId="aria-example-input"
+                  defaultValue={{
+                    label: "Chandigarh",
+                    value: "Chandigarh  Punjab",
+                  }}
+                  name="aria-live-color"
+                  onMenuOpen={onMenuOpen}
+                  onMenuClose={onMenuClose}
+                  options={option}
+                  onChange={(e) => {
+                    console.log(e.value);
+                  }}
+                  
+                />
+              </Grid>
+              <Grid item xs={12} sx={gridStyle}>
                 <TextField
                   id="outlined-basic"
                   label="Phone No"
@@ -200,12 +269,19 @@ export default function LocalSight() {
                       phone: e.target.value,
                     });
                   }}
+                  sx={{
+                    width: {
+                      xxs: 100,
+                      xs: 150,
+                      sm: 200,
+                      md: 300,
+                      lg: 400,
+                      xl: 500,
+                    },
+                  }}
                 />
-              </Col>
-            </Row>
-
-            <Row className="textfieldRow">
-              <Col sm>
+              </Grid>
+              <Grid item xs={12} sx={gridStyle}>
                 <TextField
                   id="outlined-basic"
                   label="No. Of Passanger"
@@ -221,9 +297,19 @@ export default function LocalSight() {
                       passengers: e.target.value,
                     });
                   }}
+                  sx={{
+                    width: {
+                      xxs: 100,
+                      xs: 150,
+                      sm: 200,
+                      md: 300,
+                      lg: 400,
+                      xl: 500,
+                    },
+                  }}
                 />
-              </Col>
-              <Col sm>
+              </Grid>
+              <Grid item xs={12} sx={gridStyle}>
                 {" "}
                 <TextField
                   id="outlined-basic"
@@ -242,9 +328,19 @@ export default function LocalSight() {
                       date: e.target.value,
                     });
                   }}
+                  sx={{
+                    width: {
+                      xxs: 100,
+                      xs: 150,
+                      sm: 200,
+                      md: 300,
+                      lg: 400,
+                      xl: 500,
+                    },
+                  }}
                 />
-              </Col>
-            </Row>
+              </Grid>
+            </Grid>
           </div>
 
           <div className="at_end">
@@ -255,9 +351,13 @@ export default function LocalSight() {
               </Col>
               <Col sm={11}>
                 <p>
-                  I have read & accept the <a href="https://pmlholidays.com/policies?type=privacypolicy"
-                target="_blank"
-                >Privacy Policy</a>
+                  I have read & accept the{" "}
+                  <a
+                    href="https://pmlholidays.com/policies?type=privacypolicy"
+                    target="_blank"
+                  >
+                    Privacy Policy
+                  </a>
                 </p>
               </Col>
             </Row>

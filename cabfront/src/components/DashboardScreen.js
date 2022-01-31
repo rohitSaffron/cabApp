@@ -9,6 +9,7 @@ import International from "./International";
 import AllCabs from "./AllCabs";
 import AllSiteSeen from "./AllSiteSeen";
 import AddSiteSeen from "./AddSiteSeen";
+import CabCreationForm from "./CabCreationForm";
 
 const  DashboardScreen = () => {
   const [currentPage , setcurrentPage]=useState('Dashboard')
@@ -88,9 +89,9 @@ useEffect(()=>{
               marginLeft: "30px"
             }}
           >
-            <Link to="/dashboard/reports">
+            {/* <Link to="/dashboard/reports">
               <h3 className="h3 h3--2">Reports</h3>
-            </Link>
+            </Link> */}
             <Link to="/dashboard/allcabs">
               <h3 className="h3 h3--2"> All Cabs</h3>
             </Link>
@@ -117,7 +118,7 @@ useEffect(()=>{
           <Routes>
             <Route path="/reports" element={<DashBoardGraphs />} />
             <Route path="/allcabs" element={<AllCabs />} />
-            <Route path="/cabs" element={<DashboardCabs />} />
+            <Route path="/cabs" element={<CabCreationForm />} />
             <Route path="/allsiteseen" element={<AllSiteSeen />} />
             <Route path="/addsiteseen" element={<AddSiteSeen />} />
           </Routes>

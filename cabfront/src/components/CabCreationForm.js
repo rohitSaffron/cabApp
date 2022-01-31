@@ -1,4 +1,14 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
+import {
+  Grid,
+  Box,
+  FormControl,
+  TextField,
+  InputLabel,
+  Select,
+  MenuItem,
+  Container,
+} from "@mui/material";
 import pmlAPI from "../api/pmlAPI";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
@@ -7,8 +17,79 @@ import {
   RegionDropdown,
 } from "react-indian-state-region-selector";
 
+import ButtonUnstyled, {
+  buttonUnstyledClasses,
+} from "@mui/base/ButtonUnstyled";
+import { styled } from "@mui/system";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import indianCitiesDatabase from "indian-cities-database";
+
+const gridStyle = {
+  textAlign: "center",
+  paddingLeft: 2,
+  paddingRight: 2,
+};
+const fromControlstylr = {
+  width: {
+    xxs: 100,
+    xs: 150,
+    sm: 200,
+    md: 300,
+    lg: 400,
+    xl: 500,
+  },
+};
+
+const theme = createTheme();
+const blue = {
+  500: "#007FFF",
+  600: "#0072E5",
+  700: "#0059B2",
+};
+
+const CustomButtonRoot = styled("button")`
+  font-family: IBM Plex Sans, sans-serif;
+  font-weight: bold;
+  font-size: 0.875rem;
+  background-color: ${blue[500]};
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  transition: all 150ms ease;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    background-color: ${blue[600]};
+  }
+
+  &.${buttonUnstyledClasses.active} {
+    background-color: ${blue[700]};
+  }
+
+  &.${buttonUnstyledClasses.focusVisible} {
+    box-shadow: 0 4px 20px 0 rgba(61, 71, 82, 0.1),
+      0 0 0 5px rgba(0, 127, 255, 0.5);
+    outline: none;
+  }
+
+  &.${buttonUnstyledClasses.disabled} {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`;
+
+function CustomButton(props) {
+  return <ButtonUnstyled {...props} component={CustomButtonRoot} />;
+}
+
+
+
 const CabCreationForm = ({ setCabCreation }) => {
   const navigate = useNavigate();
+  const [loading , setloading]=useState(false)
+  const citess = indianCitiesDatabase.cities;
+  const [citeies , setciteies]=useState([])
   const [cabData, setcabData] = useState({
     userId: JSON.parse(localStorage.getItem("userData")).id,
     carModel: "",
@@ -17,6 +98,7 @@ const CabCreationForm = ({ setCabCreation }) => {
     price: "",
     cabImage: "",
     region: "",
+    city:''
   });
 
   let allstate = [
@@ -165,8 +247,26 @@ const CabCreationForm = ({ setCabCreation }) => {
       name: "West Bengal",
     },
   ];
+
+
+  useEffect(() => {
+
+    
+
+    let data = citess?.filter((w)=>{
+      return w.state == cabData?.region
+    })
+
+
+    setciteies(data)
+   
+  }, [cabData]);
+  
+
   const handleCabFormSubmit = async (e) => {
-    e.preventDefault();
+   
+    setloading(true)
+    
 
     console.log(cabData);
 
@@ -175,10 +275,11 @@ const CabCreationForm = ({ setCabCreation }) => {
       .then((res) => {
         if (res?.data) {
           swal({
-            title: "success",
+            title: "Success",
             text: res.data.massage,
             icon: "success",
           });
+          setloading(false)
           navigate("/dashboard/allcabs");
         } else {
           swal({
@@ -187,168 +288,300 @@ const CabCreationForm = ({ setCabCreation }) => {
             icon: "error",
             dangerMode: true,
           });
+          setloading(false)
         }
 
         console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
+        swal({
+          title: "Error",
+          text: "Something Went Wrong",
+          icon: "error",
+          dangerMode: true,
+        });
+        setloading(false)
       });
 
     setCabCreation(false);
   };
 
+  
+
   return (
-    <form className="cab-form" onSubmit={handleCabFormSubmit}>
-      <div className="cab-form__container">
-        <div className="cab-form__input">
-          <label htmlFor="carModel">
-            <p className="p p--1">Car Model</p>
-          </label>
-          <input
-            type="text"
-            id="carModel"
-            placeholder="Car model..."
-            value={cabData.carModel}
-            onChange={(e) => {
-              setcabData({
-                ...cabData,
-                carModel: e.target.value,
-              });
-            }}
-            style={{
-              fontSize: "16px",
-              fontWeight: "normal",
-            }}
-          />
-        </div>
-      </div>
-
-      <div className="cab-form__container">
-        <div className="cab-form__input">
-          <label htmlFor="carLuggage">
-            <p className="p p--1">Luggage space</p>
-          </label>
-          <input
-            type="number"
-            id="carLuggage"
-            min="0"
-            value={cabData.luggage}
-            onChange={(e) => {
-              setcabData({
-                ...cabData,
-                luggage: e.target.value,
-              });
-            }}
-            style={{
-              fontSize: "16px",
-              fontWeight: "normal",
-            }}
-          />
-        </div>
-      </div>
-
-      <div className="cab-form__container">
-        <div className="cab-form__input">
-          <label htmlFor="carSeats">
-            <p className="p p--1">Available seats</p>
-          </label>
-          <input
-            type="number"
-            id="carSeats"
-            min="0"
-            value={cabData.seats}
-            onChange={(e) => {
-              setcabData({
-                ...cabData,
-                seats: e.target.value,
-              });
-            }}
-            style={{
-              fontSize: "16px",
-              fontWeight: "normal",
-            }}
-          />
-        </div>
-      </div>
-
-      <div className="cab-form__container">
-        <div className="cab-form__input">
-          <label htmlFor="price">
-            <p className="p p--1">Price per KM</p>
-          </label>
-          <input
-            type="number"
-            id="price"
-            step="any"
-            value={cabData.price}
-            onChange={(e) => {
-              setcabData({
-                ...cabData,
-                price: e.target.value,
-              });
-            }}
-            style={{
-              fontSize: "16px",
-              fontWeight: "normal",
-            }}
-          />
-        </div>
-      </div>
-      <div className="cab-form__container">
-        <div className="cab-form__input">
-          <label htmlFor="carImage">
-            <p className="p p--1">Region</p>
-          </label>
-          <select
-            style={{
-              fontSize: "16px",
-              fontWeight: "normal",
-            }}
-            onChange={(e)=>{
-              setcabData({
-                ...cabData,
-                region: e.target.value,
-              });
+    <>
+      <br></br>
+      <Box sx={{ flexGrow: 1 }}>
+        <Container maxWidth="sm">
+          <Grid
+            container
+            spacing={2}
+            sx={{
+              backgroundColor: "white",
+              borderRadius: "12px",
+              paddingTop: 3,
+              paddingBottom: 3,
             }}
           >
-            {allstate?.map((w) => {
-              return (
-                <option value={w.name}>{w.name}</option>
-              )
-            })}
-          </select>
-        </div>
-      </div>
+            <Grid item xs={12} sx={gridStyle}>
+              <FormControl sx={fromControlstylr}>
+                <InputLabel sx={{ fontSize: 15 }} id="StateName">
+                  Region
+                </InputLabel>
+                <Select
+                  labelId="StateName"
+                  id="StateName"
+                  name="statename"
+                  value={cabData.region}
+                  sx={fromControlstylr}
+                  InputLabelProps={{
+                    style: { fontSize: 15, color: "black" },
+                  }}
+                  label="State "
+                  onChange={(e)=>{
+                    setcabData({
+                      ...cabData,
+                      region: e.target.value,
+                    });
+                  }}
+                >
+                  {allstate?.map((w) => {
+                    return (
+                      <MenuItem sx={{ fontSize: 13 }} value={w.name}>
+                        {w.name}
+                      </MenuItem>
+                    );
+                  })}
+                </Select>
+              </FormControl>
+            </Grid>
 
-      <div className="cab-form__container">
-        <div className="cab-form__input">
-          <label htmlFor="carImage">
-            <p className="p p--1">Car image URL</p>
-          </label>
-          <input
-            type="text"
-            id="carImage"
-            placeholder="Car image..."
-            value={cabData.cabImage}
-            onChange={(e) => {
-              setcabData({
-                ...cabData,
-                cabImage: e.target.value,
-              });
-            }}
-            style={{
-              fontSize: "16px",
-              fontWeight: "normal",
-            }}
-          />
-        </div>
-      </div>
+            <Grid item xs={12} sx={gridStyle}>
+              <FormControl sx={fromControlstylr}>
+                <InputLabel sx={{ fontSize: 15 }} id="StateName">
+                  City 
+                </InputLabel>
+                <Select
+                  labelId="StateName"
+                  id="StateName"
+                  name="statename"
+                  value={cabData.city}
+                  sx={fromControlstylr}
+                  InputLabelProps={{
+                    style: { fontSize: 15, color: "black" },
+                  }}
+                  label="State "
+                  onChange={(e)=>{
+                    setcabData({
+                      ...cabData,
+                      city: e.target.value,
+                    });
+                  }}
+                >
+                  {citeies?.map((w) => {
+                    return (
+                      <MenuItem sx={{ fontSize: 13 }} value={`${w.city}  ${w.state}`}>
+                        {w.city}
+                      </MenuItem>
+                    );
+                  })}
+                </Select>
+              </FormControl>
+            </Grid>
 
-      <button className="btn btn--2" type="submit">
-        Add Cab
-      </button>
-    </form>
+            <Grid item xs={12} sx={gridStyle}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="carModel"
+                name="carModel"
+                label="Car model..."
+                type="url"
+                InputLabelProps={{
+                  style: { fontSize: 15, color: "black" },
+                }}
+                sx={{
+                  width: {
+                    xxs: 100,
+                    xs: 150,
+                    sm: 200,
+                    md: 300,
+                    lg: 400,
+                    xl: 500,
+                  },
+                }}
+                onChange={(e) => {
+                  setcabData({
+                    ...cabData,
+                    carModel: e.target.value,
+                  });
+                }}
+              />
+            </Grid>
+
+            <Grid item xs={12} sx={gridStyle}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                type='number'
+                id="carLuggage"
+                label="Luggage space"
+                name="carLuggage"
+                InputLabelProps={{
+                  style: { fontSize: 15, color: "black" },
+                }}
+                sx={{
+                  width: {
+                    xxs: 100,
+                    xs: 150,
+                    sm: 200,
+                    md: 300,
+                    lg: 400,
+                    xl: 500,
+                  },
+                }}
+                onChange={(e) => {
+                  setcabData({
+                    ...cabData,
+                    luggage: e.target.value,
+                  });
+                }}
+              />
+            </Grid>
+
+            <Grid item xs={12} sx={gridStyle}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="carSeats"
+                label="Available seats"
+                name="carSeats"
+                InputLabelProps={{
+                  style: { fontSize: 15, color: "black" },
+                }}
+                sx={{
+                  width: {
+                    xxs: 100,
+                    xs: 150,
+                    sm: 200,
+                    md: 300,
+                    lg: 400,
+                    xl: 500,
+                  },
+                }}
+                onChange={(e) => {
+                  setcabData({
+                    ...cabData,
+                    seats: e.target.value,
+                  });
+                }}
+              />
+            </Grid>
+
+
+            <Grid item xs={12} sx={gridStyle}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="price"
+                label="Price per KM"
+                name="price"
+                InputLabelProps={{
+                  style: { fontSize: 15, color: "black" },
+                }}
+                sx={{
+                  width: {
+                    xxs: 100,
+                    xs: 150,
+                    sm: 200,
+                    md: 300,
+                    lg: 400,
+                    xl: 500,
+                  },
+                }}
+                onChange={(e) => {
+                  setcabData({
+                    ...cabData,
+                    price: e.target.value,
+                  });
+                }}
+              />
+            </Grid>
+
+
+
+            
+            
+            <Grid item xs={12} sx={gridStyle}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="carImage"
+                name="carImage"
+                label=" Car image URL "
+                type="url"
+                InputLabelProps={{
+                  style: { fontSize: 15, color: "black" },
+                }}
+                sx={{
+                  width: {
+                    xxs: 100,
+                    xs: 150,
+                    sm: 200,
+                    md: 300,
+                    lg: 400,
+                    xl: 500,
+                  },
+                }}
+                onChange={(e) => {
+                  setcabData({
+                    ...cabData,
+                    cabImage: e.target.value,
+                  });
+                }}
+              />
+            </Grid>
+
+            <Grid item xs={12} sx={gridStyle}>
+              <CustomButton
+                id="btn_sin"
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{
+                  mt: 1,
+                  mb: 1,
+                  fontSize: 14,
+                  bgcolor: "#3e4166",
+                  width: {
+                    xxs: 100,
+                    xs: 150,
+                    sm: 200,
+                    md: 300,
+                    lg: 400,
+                    xl: 500,
+                  },
+                }}
+                onClick={() => {
+                 handleCabFormSubmit();
+                 
+                }}
+              >
+               {loading ? 'Loading...': ' Add Site Seen'}
+              </CustomButton>
+            </Grid>
+
+            
+          </Grid>
+        </Container>
+      </Box>
+    </>
   );
 };
 

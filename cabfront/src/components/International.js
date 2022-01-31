@@ -103,7 +103,7 @@ const International = () => {
     },
   ];
 
-  console.log(data);
+
 
   return (
     <>

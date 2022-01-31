@@ -15,7 +15,7 @@ body {
   }
 
   &--2 {
-    color: $color-black;
+    color: white;
     font-weight: 400;
     font-size: 3.3rem;
   }
@@ -27,6 +27,7 @@ body {
 
 .h3 {
   font-size: 1.8rem;
+  color: white;
 
   &--1 {
     color: $color-secondary;
@@ -55,4 +56,14 @@ body {
 
 .span {
   color: $color-secondary;
+}
+
+.cab-card__details .h2--2{
+    color: #092348;
+}
+.tags__safety .h3{
+  color: #092348;
+}
+.tags__payment .h3{
+  color: #092348;
 }

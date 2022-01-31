@@ -29,7 +29,7 @@
     gap: 20px;
     border: 1px solid $color-light-grey;
     padding: 10px 20px;
-    background: $color-white;
+    background: linear-gradient(#092348, #395d91);;
     box-shadow: 0 2px 4px 0 #c8c8c8;
     flex: 1;
     border-radius: $border-radius;
@@ -59,15 +59,18 @@
         gap: 20px;
         align-items: center;
         flex: 1;
+        box-shadow: 0 2px 4px 0 #c8c8c8;
+        padding: 10px 30px;
       }
 
       &__img {
         flex: 0.1;
-        background: $color-white;
+        background: #fbe729;
         padding: 10px 10px;
         border-radius: 50rem;
         display: flex;
         align-items: center;
+       
 
         img {
           width: 100%;
@@ -79,4 +82,9 @@
       }
     }
   }
+}
+.banner__text .h3{
+  color: #092348;
+  font-weight: bold;
+  
 }

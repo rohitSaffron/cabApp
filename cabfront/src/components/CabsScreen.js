@@ -11,6 +11,20 @@ import { useRideValue } from "../context/rideContext";
 import pmlAPI from "../api/pmlAPI";
 
 import CabCard from "./CabCard";
+import "./Allcss/checkout.css";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  ListGroup,
+  Badge,
+  Button,
+  Form,
+} from "react-bootstrap";
+import one from "../imges/one.svg";
+import two from "../imges/two.svg";
+import three from "../imges/three.svg";
 
 const   CabsScreen = () => {
   const [{ pickup, dropoff, date, passengers, distance ,TypeTravel }] = useRideValue();
@@ -85,7 +99,7 @@ console.log(cabs)
       <div className="cab-grid">
         <div className="ride-info">
           <div className="ride-info__title">
-            <h2 className="h2--2">Your transfer</h2>
+            <h2 className="h2--2">Your Booking</h2>
           </div>
           <div className="ride-info__pickup">
             <h3 className="h3 h3--1">Pick-up location</h3>
@@ -110,7 +124,77 @@ console.log(cabs)
               {travel?.passengers?.infants} inf
             </h3>
           </div>
+
+          <div>
+        <Card style={{ width: "30rem" }}>
+                  <Card.Header className="heading ">
+                    Why Sign up or Login?
+                  </Card.Header>
+                  <ListGroup variant="flush">
+                    <ListGroup.Item>
+                      <Row>
+                        <Col sm={3}>
+                          {" "}
+                          <img src={one} />
+                        </Col>
+                        <Col sm={9}>
+                          <Card.Title>Unlock exclusive benefits</Card.Title>
+                          <Card.Text>
+                            Get amazing discounts on the first ride and
+                            additional on others
+                          </Card.Text>
+                        </Col>
+                      </Row>
+                    </ListGroup.Item>
+
+                    <ListGroup.Item>
+                      <Row>
+                        <Col sm={3}>
+                          <img src={two} />
+                        </Col>
+                        <Col sm={9}>
+                          <Card.Title>
+                            Track & Manage your bookings from one place
+                          </Card.Title>
+                          <Card.Text>
+                            You can keep a track of your cab & manage all
+                            bookings from one place
+                          </Card.Text>
+                        </Col>
+                      </Row>
+                    </ListGroup.Item>
+
+                    <ListGroup.Item>
+                      <Row>
+                        <Col sm={3}>
+                          <img src={three} />
+                        </Col>
+                        <Col sm={9}>
+                          <Card.Title>
+                            Book faster with the saved details
+                          </Card.Title>
+                          <Card.Text>
+                            The saved details can be used again to book your cab
+                            ride
+                          </Card.Text>
+                        </Col>
+                      </Row>
+                    </ListGroup.Item>
+                  </ListGroup>
+                </Card>
+                </div>
+
+
+
+
+
+
+
         </div>
+
+
+        
+               
 
         <div className="cab-info">
           <div className="banner">
@@ -202,6 +286,9 @@ console.log(cabs)
           )}
         </div>
       </div>
+
+       
+
     </div>
     </>
   );

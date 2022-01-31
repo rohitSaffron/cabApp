@@ -16,7 +16,7 @@ const Footer = () => {
     navigate("/aboutus");
   };
   const Navigate_to_localSight = () => {
-    navigate("/local-sight-seeing");
+    navigate("/activities");
   };
 
   const media_links=(value)=>{

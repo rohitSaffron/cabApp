@@ -8,7 +8,7 @@ const sideSchema = new Schema({
         type:String,
         required: [true, 'Please enter stateName'],
     },
-    stateImg:{
+    stateImglink:{
         type:String,
         required: [true, 'Please enter stateImg'],
     },
@@ -31,7 +31,7 @@ const sideSchema = new Schema({
         type:String,
         required: [true, 'Please enter sightLocation'],
     },
-    featuresImage:{
+    featuresImagelink:{
         type:String,
         required: [true, 'Please enter featuresImage'],
     },

@@ -31,6 +31,9 @@ const cabSchema = new Schema(
       type: String,
       required: [true, "plz add Car Image Url"],
     },
+    city:{
+      type:String
+    }
   },
   { timestamps: true }
 );

@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback, useState } from "react";
-import CabCard from "./CabCard";
+
 import CabCreationForm from "./CabCreationForm";
 
 // API
@@ -21,18 +21,7 @@ const DashboardCabs = () => {
     fetchCabs();
   }, [fetchCabs, cabCreation]);
 
-  const renderCabs = () =>
-    cabs.map((cab) => (
-      <CabCard
-        key={cab._id}
-        carModel={cab.carModel}
-        seats={cab.seats}
-        luggage={cab.luggage}
-        price={cab.price}
-        cabImage={cab.cabImage}
-        dashboardDisplay={true}
-      />
-    ));
+ 
 
   return (
     <div className="dashboard-cabs">
@@ -45,7 +34,7 @@ const DashboardCabs = () => {
 
         {cabCreation && <CabCreationForm setCabCreation={setCabCreation} />}
       </div>
-      <div className="dashboard-cabs__cards">{renderCabs()}</div>
+     
     </div>
   );
 };

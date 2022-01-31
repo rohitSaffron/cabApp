@@ -52,7 +52,7 @@ function App() {
           ></Route>
           <Route path='/aboutus' element={<Aboutus />}></Route>
           <Route path='/cabs' element={<CabsScreen />}></Route>
-          <Route path='/local-sight-seeing' element={<LocalSight />}></Route>
+          <Route path='/local-sight-seeing/:package' element={<LocalSight />}></Route>
           <Route path='/changepsd' element={<ChangePassword />}></Route>
 
           <Route path='/dashboard/*' element={<DashboardScreen />}></Route>
